@@ -8,10 +8,14 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var appName = ConfigEnviroments.APP_NAME
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        print ("APP_NAME: \(appName)")
     }
 
 
