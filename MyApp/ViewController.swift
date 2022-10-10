@@ -6,14 +6,40 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
+
 
 class ViewController: UIViewController {
+    
+    var appName = ConfigEnviroments.APP_NAME
+    @IBOutlet weak var lblAppName: UILabel!
+    var firebaseFile = ConfigEnviroments.FIREBASE_FILE_CONFIGURATION
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+//        print ("APP_NAME: \(firebaseFile)")
+        
+        lblAppName.text = internatiolization(keyText: "appTest", commentText: "App Name")
+        
+        Auth.auth().createUser(withEmail: "nestorwblancog@mail.com", password: "AdminAdmi") { authResult, error in
+            
+            if (authResult != nil){
+                print("Exito...!!!")
+            }else{
+                print("Error, \(String(describing: error?.localizedDescription))")
+            }
+            
+        }
     }
-
+    
+    //Managment Languajes
+    func internatiolization(keyText: String, commentText: String) -> String {
+       return NSLocalizedString(keyText, comment: commentText)
+    }
 
 }
 
