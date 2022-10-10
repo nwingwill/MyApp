@@ -6,6 +6,10 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
+
 
 class ViewController: UIViewController {
     
@@ -20,6 +24,16 @@ class ViewController: UIViewController {
 //        print ("APP_NAME: \(firebaseFile)")
         
         lblAppName.text = internatiolization(keyText: "appTest", commentText: "App Name")
+        
+        Auth.auth().createUser(withEmail: "nestorwblancog@mail.com", password: "AdminAdmi") { authResult, error in
+            
+            if (authResult != nil){
+                print("Exito...!!!")
+            }else{
+                print("Error, \(String(describing: error?.localizedDescription))")
+            }
+            
+        }
     }
     
     //Managment Languajes
