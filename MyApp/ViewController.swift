@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     var appName = ConfigEnviroments.APP_NAME
     @IBOutlet weak var lblAppName: UILabel!
-    var firebaseFile = ConfigEnviroments.FIREBASE_FILE_CONFIGURATION
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,9 @@ class ViewController: UIViewController {
         
         lblAppName.text = internatiolization(keyText: "appTest", commentText: "App Name")
         
-        Auth.auth().createUser(withEmail: "nestorwblancog@mail.com", password: "AdminAdmi") { authResult, error in
+        
+        
+        Auth.auth().createUser(withEmail: "nestorwblancog@gmail.com", password: "AdminAdmi") { authResult, error in
             
             if (authResult != nil){
                 print("Exito...!!!")

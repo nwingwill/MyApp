@@ -16,7 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        FirebaseApp.configure()
+        
+        //Firebase file configuration
+        let firebaseFile = ConfigEnviroments.FIREBASE_FILE_CONFIGURATION
+        let firebaseFilePath = Bundle.main.path(forResource: firebaseFile, ofType: "plist")
+        guard let fileOpts = FirebaseOptions(contentsOfFile: firebaseFilePath!) else {assert(false, "No se selecciono archivo")}
+        FirebaseApp.configure(options: fileOpts)
         return true
     }
 
