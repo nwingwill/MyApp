@@ -135,11 +135,11 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		0994934728F32260005227A7 /* VIewModels */ = {
+		0994934728F32260005227A7 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = VIewModels;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		0994934828F3226D005227A7 /* Models */ = {
@@ -174,6 +174,13 @@
 			name = Packages;
 			sourceTree = "<group>";
 		};
+		09DBDF4A28F4B38600756617 /* NetWorking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NetWorking;
+			sourceTree = "<group>";
+		};
 		09FDACBA28F2F5E40011E6A3 = {
 			isa = PBXGroup;
 			children = (
@@ -196,9 +203,10 @@
 		09FDACC528F2F5E40011E6A3 /* MyApp */ = {
 			isa = PBXGroup;
 			children = (
+				09DBDF4A28F4B38600756617 /* NetWorking */,
 				0994934828F3226D005227A7 /* Models */,
 				0994934928F32291005227A7 /* View */,
-				0994934728F32260005227A7 /* VIewModels */,
+				0994934728F32260005227A7 /* ViewModels */,
 				09FDACDD28F2FF560011E6A3 /* ConfigFiles */,
 				09FDACC628F2F5E40011E6A3 /* AppDelegate.swift */,
 				09FDACC828F2F5E40011E6A3 /* SceneDelegate.swift */,
