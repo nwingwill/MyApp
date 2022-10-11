@@ -15,13 +15,42 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSc-a5-lyz">
+                                <rect key="frame" x="16" y="668" width="358" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="btnContinue"/>
+                                <connections>
+                                    <action selector="btnContinueToHome:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DPf-C9-REG"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LSc-a5-lyz" secondAttribute="trailing" constant="16" id="1vD-z9-lqh"/>
+                            <constraint firstItem="LSc-a5-lyz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="G34-st-uft"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LSc-a5-lyz" secondAttribute="bottom" constant="107" id="kJ4-T9-7aJ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lblBtnContinueToHome" destination="LSc-a5-lyz" id="wOs-Pg-fdI"/>
+                        <segue destination="67W-Lt-QGs" kind="show" identifier="goHomeSB" id="2gl-nb-Cil"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="21.538461538461537" y="3.5545023696682461"/>
+        </scene>
+        <!--MainVC-->
+        <scene sceneID="0vD-RV-6jo">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeSB" referencedIdentifier="HomeSB" id="67W-Lt-QGs" userLabel="MainVC" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="YE9-lr-jga"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y21-Fr-JG7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="710" y="4"/>
         </scene>
     </scenes>
 </document>

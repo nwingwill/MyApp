@@ -13,14 +13,16 @@ import FirebaseAuth
 
 class ViewController: UIViewController {
     
-    
+    var traslate = LanguageManagement()
     var timer = Timer()
     var backgroundTaskIdentifier: UIBackgroundTaskIdentifier?
     var timerCounter = 0
     var image = UIImage()
     private var observation : NSKeyValueObservation?
     
-//    let providerImg = BundleImageProvider(bundle: Bundle.main, searchPath: "8_moon")
+    
+    @IBOutlet weak var lblBtnContinueToHome: UIButton!
+    //    let providerImg = BundleImageProvider(bundle: Bundle.main, searchPath: "8_moon")
     
     var moonImageView : UIImageView = {
        
@@ -94,26 +96,10 @@ class ViewController: UIViewController {
         animation(image: nwingLogoShortPrecise, delay: 4.5, withDuration: 3.5)
         animateFadeIn(image: nwingLogoShortPrecise, delay: 4.5)
         
-//        valueTimer()
-        
-//        lblAppName.text = internatiolization(keyText: "\(ConfigEnviroments.APP_NAME)", commentText: "App Name")
-        
-        
-        
-//        Auth.auth().createUser(withEmail: "nestorwblancog@gmail.com", password: "AdminAdmi") { authResult, error in
-//
-//            if (authResult != nil){
-//                print("Exito...!!!")
-//            }else{
-//                print("Error, \(String(describing: error?.localizedDescription))")
-//            }
-//
-//        }
-    }
+//        gotoStorieBoard()
+        //btnContinue
+        lblBtnContinueToHome.titleLabel?.text = traslate.internatiolization(keyText: "lcbtnContinue", commentText: "Continue...")
     
-    //Managment Languajes
-    func internatiolization(keyText: String, commentText: String) -> String {
-       return NSLocalizedString(keyText, comment: commentText)
     }
     
     
@@ -138,7 +124,7 @@ class ViewController: UIViewController {
         let count = timerCounter
 //        self.splashScreenProgressBar.progress = Float(self.timerCounter) / 15
 //        proegressBar()
-        if (count == 15) {
+        if (count == 10) {
             
 //            self.splashScreenProgressBar.isHidden = true
             self.timer.invalidate()
@@ -233,6 +219,31 @@ class ViewController: UIViewController {
                 self.shrinkImage(image: image, withDuration: withDuration)
                 
             }
+        }
+    }
+    
+    func gotoStorieBoard (){
+        
+        
+        
+    }
+    
+    
+    @IBAction func btnContinueToHome(_ sender: Any) {
+
+        performSegue(withIdentifier: "goHomeSB", sender: self)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+//        let welcomeVC : ViewController = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        if segue.identifier == "goHomeSB" {
+            guard let goToViewStoryBoard = segue.destination as? HomeVC else{return}
+            goToViewStoryBoard.modalPresentationStyle = .fullScreen
+//            goToViewStoryBoard.appNameLbl.text = "SIp....!!!!"
+            goToViewStoryBoard.dismiss(animated: true, completion: nil)
+            
         }
     }
 
