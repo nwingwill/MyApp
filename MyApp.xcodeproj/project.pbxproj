@@ -42,6 +42,11 @@
 		09DBDF4528F434B300756617 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 09DBDF4428F434B300756617 /* FirebaseRemoteConfigSwift */; };
 		09DBDF4728F434B300756617 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 09DBDF4628F434B300756617 /* FirebaseStorage */; };
 		09DBDF4928F434B300756617 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 09DBDF4828F434B300756617 /* FirebaseStorageCombine-Community */; };
+		09DBDF5028F4BC5E00756617 /* LanguageManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DBDF4F28F4BC5E00756617 /* LanguageManagement.swift */; };
+		09DBDF5728F4C33A00756617 /* UserManagementProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DBDF5628F4C33A00756617 /* UserManagementProtocol.swift */; };
+		09DBDF5928F4C38D00756617 /* UserManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DBDF5828F4C38D00756617 /* UserManagement.swift */; };
+		09DBDF5D28F4CC2000756617 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DBDF5C28F4CC2000756617 /* HomeVC.swift */; };
+		09DBDF5F28F4CC7500756617 /* HomeSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09DBDF5E28F4CC7500756617 /* HomeSB.storyboard */; };
 		09FDACC728F2F5E40011E6A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FDACC628F2F5E40011E6A3 /* AppDelegate.swift */; };
 		09FDACC928F2F5E40011E6A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FDACC828F2F5E40011E6A3 /* SceneDelegate.swift */; };
 		09FDACCB28F2F5E40011E6A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FDACCA28F2F5E40011E6A3 /* ViewController.swift */; };
@@ -67,6 +72,11 @@
 		09DBDF0E28F3992600756617 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		09DBDF1028F3996100756617 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		09DBDF1228F3BB1200756617 /* firebase-ios-sdk */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "firebase-ios-sdk"; path = "../../iOS_SDK/firebase-ios-sdk"; sourceTree = "<group>"; };
+		09DBDF4F28F4BC5E00756617 /* LanguageManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManagement.swift; sourceTree = "<group>"; };
+		09DBDF5628F4C33A00756617 /* UserManagementProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagementProtocol.swift; sourceTree = "<group>"; };
+		09DBDF5828F4C38D00756617 /* UserManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagement.swift; sourceTree = "<group>"; };
+		09DBDF5C28F4CC2000756617 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		09DBDF5E28F4CC7500756617 /* HomeSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeSB.storyboard; sourceTree = "<group>"; };
 		09FDACC328F2F5E40011E6A3 /* MyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09FDACC628F2F5E40011E6A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09FDACC828F2F5E40011E6A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +162,8 @@
 		0994934928F32291005227A7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				09DBDF5C28F4CC2000756617 /* HomeVC.swift */,
+				09DBDF5E28F4CC7500756617 /* HomeSB.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -177,8 +189,26 @@
 		09DBDF4A28F4B38600756617 /* NetWorking */ = {
 			isa = PBXGroup;
 			children = (
+				09DBDF5128F4BE7700756617 /* Auth */,
 			);
 			path = NetWorking;
+			sourceTree = "<group>";
+		};
+		09DBDF4E28F4BC1F00756617 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				09DBDF4F28F4BC5E00756617 /* LanguageManagement.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		09DBDF5128F4BE7700756617 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				09DBDF5628F4C33A00756617 /* UserManagementProtocol.swift */,
+				09DBDF5828F4C38D00756617 /* UserManagement.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		09FDACBA28F2F5E40011E6A3 = {
@@ -203,6 +233,7 @@
 		09FDACC528F2F5E40011E6A3 /* MyApp */ = {
 			isa = PBXGroup;
 			children = (
+				09DBDF4E28F4BC1F00756617 /* Helpers */,
 				09DBDF4A28F4B38600756617 /* NetWorking */,
 				0994934828F3226D005227A7 /* Models */,
 				0994934928F32291005227A7 /* View */,
@@ -338,6 +369,7 @@
 				098A965228F30D2F0008CB2D /* ProductionConfig.xcconfig in Resources */,
 				0994934F28F32C58005227A7 /* GoogleService-QA-Info.plist in Resources */,
 				09FDACD328F2F5EB0011E6A3 /* Assets.xcassets in Resources */,
+				09DBDF5F28F4CC7500756617 /* HomeSB.storyboard in Resources */,
 				09DBDF0D28F3992600756617 /* Localizable.strings in Resources */,
 				098A965628F30D920008CB2D /* QAConfig.xcconfig in Resources */,
 				09FDACCE28F2F5E40011E6A3 /* Main.storyboard in Resources */,
@@ -379,9 +411,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				098A965A28F312830008CB2D /* ConfigEnviroments.swift in Sources */,
+				09DBDF5728F4C33A00756617 /* UserManagementProtocol.swift in Sources */,
 				09FDACCB28F2F5E40011E6A3 /* ViewController.swift in Sources */,
+				09DBDF5D28F4CC2000756617 /* HomeVC.swift in Sources */,
+				09DBDF5028F4BC5E00756617 /* LanguageManagement.swift in Sources */,
 				09FDACD128F2F5E40011E6A3 /* MyApp.xcdatamodeld in Sources */,
 				09FDACC728F2F5E40011E6A3 /* AppDelegate.swift in Sources */,
+				09DBDF5928F4C38D00756617 /* UserManagement.swift in Sources */,
 				09FDACC928F2F5E40011E6A3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

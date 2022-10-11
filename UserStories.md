@@ -62,3 +62,9 @@
 - [ ]   ```US010 Opciones```
     1. [ ] Visualizar eventos y promociones que contenga la plataforma.
     2. [ ] Tener acceso a las opciones de la herramienta.
+
+- [ ]   ```US011 Home```
+    1. Visualizar galeria de espacios
+    2. Visualizar Como Llegar al local
+    3. Visuizar eventos y promociones
+    4. Tener Acceso a Opciones de registro y autenticacion
