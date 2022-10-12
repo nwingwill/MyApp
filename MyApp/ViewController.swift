@@ -95,43 +95,13 @@ class ViewController: UIViewController {
         animation(image: nwingLogoShortPrecise, delay: 1.5, withDuration: 3.5)
         animation(image: nwingLogoShortPrecise, delay: 4.5, withDuration: 3.5)
         animateFadeIn(image: nwingLogoShortPrecise, delay: 4.5)
-        
-//        gotoStorieBoard()
-        //btnContinue
+
         lblBtnContinueToHome.titleLabel?.text = traslate.internatiolization(keyText: "lcbtnContinue", commentText: "Continue...")
     
     }
     
     
-    /// <#Description#>
-    func valueTimer() {
 
-        DispatchQueue.global(qos: .background).async {
-            let currentRunLoop = RunLoop.current
-            let timeInterval = 0.15
-            self.timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
-            self.timer.tolerance = timeInterval * 0.1
-            currentRunLoop.add(self.timer, forMode: RunLoop.Mode.common)
-            currentRunLoop.run()
-
-        }
-    }
-    
-    /// <#Description#>
-    @objc func updateTimer() {
-        timerCounter += 1
-        
-        let count = timerCounter
-//        self.splashScreenProgressBar.progress = Float(self.timerCounter) / 15
-//        proegressBar()
-        if (count == 10) {
-            
-//            self.splashScreenProgressBar.isHidden = true
-            self.timer.invalidate()
-
-        }
-    }
-    
     /// Animate logo parts in the intro splash screen
     /// - Parameters:
     ///   - image: UIImage
@@ -222,26 +192,23 @@ class ViewController: UIViewController {
         }
     }
     
-    func gotoStorieBoard (){
-        
-        
-        
-    }
+
     
     
     @IBAction func btnContinueToHome(_ sender: Any) {
-
+        
+        lblBtnContinueToHome.isHidden = true
         performSegue(withIdentifier: "goHomeSB", sender: self)
+        
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-//        let welcomeVC : ViewController = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
         if segue.identifier == "goHomeSB" {
             guard let goToViewStoryBoard = segue.destination as? HomeVC else{return}
             goToViewStoryBoard.modalPresentationStyle = .fullScreen
-//            goToViewStoryBoard.appNameLbl.text = "SIp....!!!!"
+            
             goToViewStoryBoard.dismiss(animated: true, completion: nil)
             
         }
