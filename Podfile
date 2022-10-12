@@ -6,5 +6,7 @@ target 'MyApp' do
   use_frameworks!
 
   # Pods for MyApp
+  #Networking
+  pod 'Alamofire'
 
 end

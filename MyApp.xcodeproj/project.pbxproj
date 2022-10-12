@@ -41,6 +41,10 @@
 		099E357D28F613BB00A249F9 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 099E357C28F613BB00A249F9 /* FirebaseRemoteConfigSwift */; };
 		099E357F28F613BB00A249F9 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 099E357E28F613BB00A249F9 /* FirebaseStorage */; };
 		099E358128F613BB00A249F9 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 099E358028F613BB00A249F9 /* FirebaseStorageCombine-Community */; };
+		09D1B8CC28F70A4100F3D20D /* DisplayableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D1B8CB28F70A4100F3D20D /* DisplayableProtocol.swift */; };
+		09D1B8CF28F70D2E00F3D20D /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D1B8CE28F70D2E00F3D20D /* FilmModel.swift */; };
+		09D1B8D128F70FB100F3D20D /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D1B8D028F70FB100F3D20D /* ResultModel.swift */; };
+		09D1B8D328F71B9700F3D20D /* AllResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D1B8D228F71B9700F3D20D /* AllResultModel.swift */; };
 		09DBDF0D28F3992600756617 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09DBDF0F28F3992600756617 /* Localizable.strings */; };
 		09DBDF5028F4BC5E00756617 /* LanguageManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DBDF4F28F4BC5E00756617 /* LanguageManagement.swift */; };
 		09DBDF5728F4C33A00756617 /* UserManagementProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DBDF5628F4C33A00756617 /* UserManagementProtocol.swift */; };
@@ -73,6 +77,10 @@
 		0994934B28F32AB2005227A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0994934D28F32C58005227A7 /* GoogleService-QA-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-QA-Info.plist"; sourceTree = "<group>"; };
 		0994934E28F32C58005227A7 /* GoogleService-Dev-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Dev-Info.plist"; sourceTree = "<group>"; };
+		09D1B8CB28F70A4100F3D20D /* DisplayableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayableProtocol.swift; sourceTree = "<group>"; };
+		09D1B8CE28F70D2E00F3D20D /* FilmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmModel.swift; sourceTree = "<group>"; };
+		09D1B8D028F70FB100F3D20D /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
+		09D1B8D228F71B9700F3D20D /* AllResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllResultModel.swift; sourceTree = "<group>"; };
 		09DBDF0E28F3992600756617 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		09DBDF1028F3996100756617 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		09DBDF1228F3BB1200756617 /* firebase-ios-sdk */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "firebase-ios-sdk"; path = "../../iOS_SDK/firebase-ios-sdk"; sourceTree = "<group>"; };
@@ -163,6 +171,7 @@
 		0994934828F3226D005227A7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				09D1B8CD28F70CFB00F3D20D /* Movies */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -187,6 +196,16 @@
 			path = FireBaseFileConfig;
 			sourceTree = "<group>";
 		};
+		09D1B8CD28F70CFB00F3D20D /* Movies */ = {
+			isa = PBXGroup;
+			children = (
+				09D1B8CE28F70D2E00F3D20D /* FilmModel.swift */,
+				09D1B8D028F70FB100F3D20D /* ResultModel.swift */,
+				09D1B8D228F71B9700F3D20D /* AllResultModel.swift */,
+			);
+			path = Movies;
+			sourceTree = "<group>";
+		};
 		09DBDF1128F3BB1200756617 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				09DBDF5128F4BE7700756617 /* Auth */,
+				09D1B8CB28F70A4100F3D20D /* DisplayableProtocol.swift */,
 			);
 			path = NetWorking;
 			sourceTree = "<group>";
@@ -319,6 +339,7 @@
 				09FDACBF28F2F5E40011E6A3 /* Sources */,
 				09FDACC028F2F5E40011E6A3 /* Frameworks */,
 				09FDACC128F2F5E40011E6A3 /* Resources */,
+				6EE5CF7BA3088A63C733E74E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -441,6 +462,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6EE5CF7BA3088A63C733E74E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyApp/Pods-MyApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyApp/Pods-MyApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyApp/Pods-MyApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -451,13 +489,17 @@
 				098A965A28F312830008CB2D /* ConfigEnviroments.swift in Sources */,
 				09DBDF5728F4C33A00756617 /* UserManagementProtocol.swift in Sources */,
 				09FDACCB28F2F5E40011E6A3 /* ViewController.swift in Sources */,
+				09D1B8CF28F70D2E00F3D20D /* FilmModel.swift in Sources */,
 				09DBDF5D28F4CC2000756617 /* HomeVC.swift in Sources */,
+				09D1B8CC28F70A4100F3D20D /* DisplayableProtocol.swift in Sources */,
+				09D1B8D328F71B9700F3D20D /* AllResultModel.swift in Sources */,
 				09DBDF5028F4BC5E00756617 /* LanguageManagement.swift in Sources */,
 				09FCC68628F6205F00E0BFBF /* MainElementCVViewCell.swift in Sources */,
 				09FCC68D28F6212100E0BFBF /* SingleElementTVCell.swift in Sources */,
 				09FDACD128F2F5E40011E6A3 /* MyApp.xcdatamodeld in Sources */,
 				09FDACC728F2F5E40011E6A3 /* AppDelegate.swift in Sources */,
 				09DBDF5928F4C38D00756617 /* UserManagement.swift in Sources */,
+				09D1B8D128F70FB100F3D20D /* ResultModel.swift in Sources */,
 				09FDACC928F2F5E40011E6A3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
