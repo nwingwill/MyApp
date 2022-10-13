@@ -8,5 +8,8 @@ target 'MyApp' do
   # Pods for MyApp
   #Networking
   pod 'Alamofire'
+  
+  #Image from url
+  pod 'SDWebImage'
 
 end

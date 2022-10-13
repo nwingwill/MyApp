@@ -9,14 +9,14 @@ import Foundation
 
 // MARK: - Welcome
 struct AllResultModel: Decodable {
-    let dates: Dates
+//    let dates: Date
     let page: Int
     let results: [ResultModel]
     let totalPages: Int
     let totalResults: Int
     
     enum CodingKeys: String, CodingKey {
-        case dates
+//        case dates
         case page
         case results
         case totalPages = "total_pages"

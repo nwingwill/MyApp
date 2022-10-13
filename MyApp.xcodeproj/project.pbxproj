@@ -42,7 +42,6 @@
 		099E357F28F613BB00A249F9 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 099E357E28F613BB00A249F9 /* FirebaseStorage */; };
 		099E358128F613BB00A249F9 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 099E358028F613BB00A249F9 /* FirebaseStorageCombine-Community */; };
 		09D1B8CC28F70A4100F3D20D /* DisplayableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D1B8CB28F70A4100F3D20D /* DisplayableProtocol.swift */; };
-		09D1B8CF28F70D2E00F3D20D /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D1B8CE28F70D2E00F3D20D /* FilmModel.swift */; };
 		09D1B8D128F70FB100F3D20D /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D1B8D028F70FB100F3D20D /* ResultModel.swift */; };
 		09D1B8D328F71B9700F3D20D /* AllResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D1B8D228F71B9700F3D20D /* AllResultModel.swift */; };
 		09DBDF0D28F3992600756617 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09DBDF0F28F3992600756617 /* Localizable.strings */; };
@@ -78,7 +77,6 @@
 		0994934D28F32C58005227A7 /* GoogleService-QA-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-QA-Info.plist"; sourceTree = "<group>"; };
 		0994934E28F32C58005227A7 /* GoogleService-Dev-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Dev-Info.plist"; sourceTree = "<group>"; };
 		09D1B8CB28F70A4100F3D20D /* DisplayableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayableProtocol.swift; sourceTree = "<group>"; };
-		09D1B8CE28F70D2E00F3D20D /* FilmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmModel.swift; sourceTree = "<group>"; };
 		09D1B8D028F70FB100F3D20D /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
 		09D1B8D228F71B9700F3D20D /* AllResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllResultModel.swift; sourceTree = "<group>"; };
 		09DBDF0E28F3992600756617 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -199,7 +197,6 @@
 		09D1B8CD28F70CFB00F3D20D /* Movies */ = {
 			isa = PBXGroup;
 			children = (
-				09D1B8CE28F70D2E00F3D20D /* FilmModel.swift */,
 				09D1B8D028F70FB100F3D20D /* ResultModel.swift */,
 				09D1B8D228F71B9700F3D20D /* AllResultModel.swift */,
 			);
@@ -489,7 +486,6 @@
 				098A965A28F312830008CB2D /* ConfigEnviroments.swift in Sources */,
 				09DBDF5728F4C33A00756617 /* UserManagementProtocol.swift in Sources */,
 				09FDACCB28F2F5E40011E6A3 /* ViewController.swift in Sources */,
-				09D1B8CF28F70D2E00F3D20D /* FilmModel.swift in Sources */,
 				09DBDF5D28F4CC2000756617 /* HomeVC.swift in Sources */,
 				09D1B8CC28F70A4100F3D20D /* DisplayableProtocol.swift in Sources */,
 				09D1B8D328F71B9700F3D20D /* AllResultModel.swift in Sources */,
