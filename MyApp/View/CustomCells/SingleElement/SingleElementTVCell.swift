@@ -21,7 +21,15 @@ class SingleElementTVCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+        self.singleImageView.layer.cornerRadius = 10.0
+        self.singleImageView.layer.masksToBounds = true
+        self.singleImageView.layer.shadowColor = UIColor.black.cgColor
+        
+        self.titleLbl.shadowColor = UIColor.white
+        self.titleLbl.layer.shadowColor = UIColor.white.cgColor
+        self.titleLbl.layer.cornerRadius = 10.0
+        self.singleImageView.layer.masksToBounds = true
+        
     }
     
 }
