@@ -12,10 +12,10 @@ struct ResultTopModel: Codable {
     let backdropPath: String
     let id: Int
     let name: String?
-    let originalLanguage: OriginalLanguage
+//    let originalLanguage: OriginalLanguage
     let originalName: String?
     let overview, posterPath: String
-    let mediaType: MediaType
+//    let mediaType: MediaType
     let genreIDS: [Int]
     let popularity: Double
     let firstAirDate: String?
@@ -29,11 +29,11 @@ struct ResultTopModel: Codable {
         case adult
         case backdropPath = "backdrop_path"
         case id, name
-        case originalLanguage = "original_language"
+//        case originalLanguage = "original_language"
         case originalName = "original_name"
         case overview
         case posterPath = "poster_path"
-        case mediaType = "media_type"
+//        case mediaType = "media_type"
         case genreIDS = "genre_ids"
         case popularity
         case firstAirDate = "first_air_date"

@@ -11,5 +11,13 @@ target 'MyApp' do
   
   #Image from url
   pod 'SDWebImage'
+  
+  #Floating Menu
+  pod 'FloatingButton'
 
+  #Calendar Tool
+  pod 'CalendarKit'
+  
+  #Skeleton loading
+  pod 'SkeletonView'
 end

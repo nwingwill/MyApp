@@ -43,6 +43,8 @@ class TopElementViewModel {
             if response.error != nil {
 //                print("Error en la consulta: \(response.error?.errorDescription ?? "...")")
                 self.debug.debugMessage(error: "\(response.error?.errorDescription ?? "...") \(String(describing: response.error))", message: "Error en la consulta:")
+                
+                self.debug.debugMessage(error: url, message: "Revision Url:")
             }else{
                 
                 guard let resultsTop = response.value else {return}

@@ -13,12 +13,13 @@ import SDWebImage
 class HomeVC: UIViewController {
     
     @IBOutlet weak var logoImgView: UIImageView!
-    @IBOutlet weak var loginImgView: UIImageView!
     @IBOutlet weak var appNameLbl: UILabel!
     
+    @IBOutlet weak var singInOutBtn: UIButton!
     @IBOutlet weak var locationMV: MKMapView!
     @IBOutlet weak var mainElementCV: UICollectionView!
     
+
     @IBOutlet weak var singleElmentTV: UITableView!
     
     var traslate = LanguageManagement()
@@ -37,7 +38,7 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-//        configuereView()
+//        configsingInOutBtn()
         configuereViewTopElements()
         configureViewBotomElemts()
         bindTop()
@@ -45,22 +46,6 @@ class HomeVC: UIViewController {
         
     }
     
-    func configuereView() {
-        homeVieModel.retriveDataList()
-        self.mainElementCV.register(UINib(nibName: "MainElementCVViewCell", bundle: nil), forCellWithReuseIdentifier: "mainElement")
-        //        self.singleElmentTV.register(UINib(nibName: "SingleElementTVCell", bundle: nil), forCellReuseIdentifier: "singleElement")
-        
-        //        self.singleElmentTV.layer.cornerRadius = 5.0
-        self.mainElementCV.layer.cornerRadius = 5.0
-        //        self.singleElmentTV.layer.masksToBounds = true
-        self.mainElementCV.layer.masksToBounds = true
-        
-        //        self.singleElmentTV.dataSource = self
-        //        self.singleElmentTV.delegate = self
-        self.mainElementCV.dataSource = self
-        self.mainElementCV.delegate = self
-        
-    }
     
     func configuereViewTopElements() {
         
@@ -86,10 +71,7 @@ class HomeVC: UIViewController {
         self.singleElmentTV.dataSource = self
         self.singleElmentTV.delegate = self
     }
-    
-//    func dataSourece() {
-//        homeVieModel.retriveDataEndPoint(endPoint: endPoint.popularEndpoint)
-//    }
+
     
     private func bind() {
         homeVieModel.refreshData = { [weak self] () in
@@ -120,6 +102,26 @@ class HomeVC: UIViewController {
         }
     }
     
+    
+    /// <#Description#>
+    /// - Parameter sender: <#sender description#>
+    @IBAction func singInOutBtn(_ sender: UIButton) {
+        
+//        lblBtnContinueToHome.isHidden = true
+        performSegue(withIdentifier: "goAuthSB", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "goAuthSB" {
+            guard let goToViewStoryBoard = segue.destination as? LoginVC else{return}
+            goToViewStoryBoard.modalPresentationStyle = .fullScreen
+            
+            goToViewStoryBoard.dismiss(animated: true, completion: nil)
+            
+        }
+    }
+    
 }
 
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -137,13 +139,24 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
         //        let item = items[indexPath.row]
         let item = topElements.itemsTop[indexPath.row]
         let imageUrl = "https://image.tmdb.org/t/p/original\(item.itemImage)"
-        cell?.mainImgImageView.sd_setImage(with: URL(string: imageUrl))
-        cell?.titleLbl.text = item.titleLabelText
+        
+
+            cell?.mainImgImageView.sd_setImage(with: URL(string: imageUrl))
+            cell?.titleLbl.text = ""
+   
         return cell!
     }
 }
 
+
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
+    
+    
+    /// <#Description#>
+    /// - Parameters:
+    ///   - tableView: <#tableView description#>
+    ///   - section: <#section description#>
+    /// - Returns: <#description#>
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
     }
@@ -153,10 +166,21 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     
+    /// <#Description#>
+    /// - Parameters:
+    ///   - tableView: <#tableView description#>
+    ///   - section: <#section description#>
+    /// - Returns: <#description#>
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return botomElemets.itemsBotom.count
     }
     
+    
+    /// <#Description#>
+    /// - Parameters:
+    ///   - tableView: <#tableView description#>
+    ///   - indexPath: <#indexPath description#>
+    /// - Returns: <#description#>
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "singleElement", for: indexPath) as? SingleElementTVCell
         //        let item = items[indexPath.row]
@@ -171,58 +195,6 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         
     }
     
+
 }
 
-//extension HomeVC {
-//
-//    func fetchResult() {
-//        homeVieModel.fetch_Result()
-//    }
-//
-//    func prepareViewModelObserver() {
-//        self.homeVieModel.dataDidChanges = { (finished, error) in
-//            if !error {
-//                self.reloadData()
-//            }
-//        }
-//    }
-//
-//    func reloadData() {
-//        self.singleElmentTV.reloadData()
-//        self.mainElementCV.reloadData()
-//    }
-//}
-
-//extension HomeVC {
-//
-//    func fetchResult(){
-//        //https://api.themoviedb.org/3/movie/now_playing?api_key=16dfbf948b4831d21068af2e750c66ee&language=en-US&page=1
-//        let baseurl = ConfigEnviroments.BASE_URL
-//        let endPoint = "/3/movie/now_playing?api_key="
-//        let parameter = "&language=en-US&page=1"
-//        let url = "\(baseurl)\(endPoint)\(ConfigEnviroments.API_KEY)\(parameter)"
-//        let request = AF.request("\(url)")
-//
-//
-//        request.responseDecodable  (of: AllResultModel.self) { (response) in
-//
-//            if response.error != nil {
-//                print("Error en la consulta: \(response.error?.errorDescription ?? "...")")
-//            }else{
-//
-//                guard let results = response.value else {return}
-//                self.results = results.results
-//                self.items = results.results
-//                self.mainElementCV.reloadData()
-//                self.singleElmentTV.reloadData()
-//                print("results: \(results.results)")
-//                print("Items: \(self.items.count)")
-//                print("url endpoint: \(url)")
-//            }
-//
-//        }
-//        print("Items: \(self.items.count)")
-//        print("url endpoint: \(url)")
-//    }
-//
-//}
