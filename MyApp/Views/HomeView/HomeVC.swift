@@ -9,6 +9,7 @@ import UIKit
 import MapKit
 import Alamofire
 import SDWebImage
+import SkeletonView
 
 class HomeVC: UIViewController {
     
@@ -25,27 +26,34 @@ class HomeVC: UIViewController {
     var traslate = LanguageManagement()
     var endPoint = EndPoitModel()
     var segueText: String?
-    
-    //    var results : [ResultModel] = []
-    //    var items : [DisplayableProtocol] = []
-    //    var image = UIImage()
+
     
     var homeVieModel = HomeViewModel()
     var botomElemets = BottomElementViewModel()
     var topElements = TopElementViewModel()
     
+    let logedIn = UserDefaults.standard.isLoggedIn()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-//        configsingInOutBtn()
-        configuereViewTopElements()
-        configureViewBotomElemts()
+        configureView()
         bindTop()
         bindBottom()
         
     }
     
+    func configureView() {
+        
+        if  logedIn == true {
+//            singInOutBtn.isHidden = true
+            singInOutBtn.imageView?.image = UIImage(systemName: "gear")
+            UserDefaults.standard.removeObject(forKey: UserDefaults.UserDefaultsKeys.isLoggedIn.rawValue)
+        }
+        
+        configuereViewTopElements()
+        configureViewBotomElemts()
+    }
     
     func configuereViewTopElements() {
         
@@ -107,7 +115,13 @@ class HomeVC: UIViewController {
     /// - Parameter sender: <#sender description#>
     @IBAction func singInOutBtn(_ sender: UIButton) {
         
-//        lblBtnContinueToHome.isHidden = true
+
+        if  logedIn == true {
+            
+            singInOutBtn.imageView?.image = UIImage(systemName: "gear")
+            
+        }
+        
         performSegue(withIdentifier: "goAuthSB", sender: self)
     }
     
@@ -127,6 +141,7 @@ class HomeVC: UIViewController {
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("Data array count: \(homeVieModel.items.count)")
         return topElements.itemsTop.count
@@ -140,8 +155,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
         let item = topElements.itemsTop[indexPath.row]
         let imageUrl = "https://image.tmdb.org/t/p/original\(item.itemImage)"
         
-
-            cell?.mainImgImageView.sd_setImage(with: URL(string: imageUrl))
+        cell?.mainImgImageView.sd_setImage(with: URL(string: imageUrl))
             cell?.titleLbl.text = ""
    
         return cell!

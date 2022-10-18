@@ -16,4 +16,6 @@ protocol UserManagementProtocol {
     ///   - password: Password
     /// - Returns: Returns true if the registration is successful
     func createUser(email: String, password: String) -> Bool
+    
+    func logInAuth(email: String, password: String)
 }

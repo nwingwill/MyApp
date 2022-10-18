@@ -28,8 +28,11 @@ class LoginVC: UIViewController {
     var usermanager = LoginViewModel()
     
     var traslate = LanguageManagement()
+    var alert = AlertMessengeHelperVC()
+    var userModel = [UserModel]()
 
     
+    var result: Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,7 +41,7 @@ class LoginVC: UIViewController {
     }
     
 
-    /*
+    /*showLoginHomeAuth
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -64,14 +67,45 @@ class LoginVC: UIViewController {
     }
     
     
+    private func bind() {
+        usermanager.refreshData = { [weak self] () in
+            
+            DispatchQueue.main.async {
+//                self?.mainElementCV.reloadData()
+//                UserDefaults.standard.isLoggedIn()
+//                self?.usermanager.items
+//                self?.userModel.append(contentsOf: self!.usermanager.item)
+                self!.result = self!.usermanager.item
+                if self!.result == true {
+                    let secount = 3.0
+                    DispatchQueue.main.asyncAfter(deadline: .now() + secount) {
+                        
+                        let identifierSegue = "showLoginHomeAuth"
+                        self!.performSegue(withIdentifier: "\(identifierSegue)", sender: self)
+                    }
+                }else{
+                    self!.alert.showAlert(title: "Failure", message: "Error al acceder", alertType: .failure)
+                }
+            }
+            
+        }
+    }
+    
     @IBAction func singUp(_ sender: Any) {
+        
+        let identifierSegue = "goRegisterSB"
+        performSegue(withIdentifier: "\(identifierSegue)", sender: self)
+//
     }
     
     @IBAction func loginBtn(_ sender: Any) {
-        
-//        usermanager.logInAuth(email: emailLbl.text!, password: passwordLbl.text!)
-        usermanager.login(email: emailLbl.text!, password: passwordLbl.text!)
-//        print("Email: \(emailLbl.text), password: \(passwordLbl.text)")
+
+        usermanager.retriveData(email: emailLbl.text!, password: passwordLbl.text!)
+
+//        let secount = 3.0
+//        DispatchQueue.main.asyncAfter(deadline: .now() + secount) {
+            bind()
+//        }
         
     }
     
@@ -79,5 +113,21 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func googleLogInBtn(_ sender: Any) {
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "showLoginHomeAuth" {
+            guard let goToViewStoryBoard = segue.destination as? HomeVC else{return}
+            goToViewStoryBoard.modalPresentationStyle = .fullScreen
+            
+            goToViewStoryBoard.dismiss(animated: true, completion: nil)
+            
+        }else if segue.identifier == "goRegisterSB" {
+            guard let goToViewStoryBoard = segue.destination as? AuthVC else{return}
+            goToViewStoryBoard.modalPresentationStyle = .fullScreen
+            
+            goToViewStoryBoard.dismiss(animated: true, completion: nil)
+        }
     }
 }

@@ -196,7 +196,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func btnContinueToHome(_ sender: Any) {
-        
+        lblBtnContinueToHome.titleLabel?.text = traslate.internatiolization(keyText: "lcbtnContinue", commentText: "Continue...")
         lblBtnContinueToHome.isHidden = true
         performSegue(withIdentifier: "goHomeSB", sender: self)
         

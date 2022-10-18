@@ -8,38 +8,37 @@
 import Foundation
 import FirebaseCore
 import FirebaseAuth
+//import Rx
 
 /// Allows user management
 class UserManagement: UserManagementProtocol {
+    
  
     var debug = DebugManager(error: "", message: "")
     var alert = AlertMessengeHelperVC()
+    var userModel = UserModel(userUUID: "", userEmail: "", userName: "")
+    var result: String = ""
+    
+    
     func logInAuth(email: String, password: String) {
         
         var userUUID: String = ""
-        var userName: String = ""
-        var msg : String = ""
-        
+
         Auth.auth().signIn(withEmail: email, password: password) {[weak self] authResult, error in
             
-//            guard let strongSelf = self else {return}
-            
             if (authResult != nil) {
-                self!.debug.debugMessage(error: "User UUID: \(String(describing: authResult?.user.uid)), \(String(describing: authResult?.user.providerID))", message: "Exito: ")
-                userUUID = (authResult?.user.uid)!
-//                userName = (authResult?.user.displayName)!
-                    msg = authResult?.user.uid ?? ""
-                    
-                self!.alert.showAlert(title: "Success", message: "User UUID: \(msg)", alertType: .success)
                 
+                userUUID = authResult?.user.uid ?? "No Value"
+                self!.alert.showAlert(title: "Exito", message: "Bienvenido... \(userUUID)", alertType: .success)
+//                UserDefaults.standard.setLoggedIn(value: true)
+//                self!.resultado()
             } else {
-                msg = error?.localizedDescription ?? ""
-                self!.alert.showAlert(title: "Failure", message: "error: \(msg)", alertType: .failure)
+                let result = error?.localizedDescription ?? ""
+                self!.alert.showAlert(title: "Failure", message: "error: \(result)", alertType: .failure)
             }
+            
         }
-        
-        
-        
+        return
     }
     
     func createUser(email: String, password: String) -> Bool {

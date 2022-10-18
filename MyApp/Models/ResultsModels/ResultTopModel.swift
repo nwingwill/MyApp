@@ -21,7 +21,7 @@ struct ResultTopModel: Codable {
     let firstAirDate: String?
     let voteAverage: Double
     let voteCount: Int
-    let originCountry: [String]?
+//    let originCountry: [String]?
     let title, originalTitle, releaseDate: String?
     let video: Bool?
 
@@ -39,7 +39,7 @@ struct ResultTopModel: Codable {
         case firstAirDate = "first_air_date"
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
-        case originCountry = "origin_country"
+//        case originCountry = "origin_country"
         case title
         case originalTitle = "original_title"
         case releaseDate = "release_date"
