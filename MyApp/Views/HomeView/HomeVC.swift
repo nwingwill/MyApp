@@ -20,7 +20,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var locationMV: MKMapView!
     @IBOutlet weak var mainElementCV: UICollectionView!
     
-
+    
     @IBOutlet weak var singleElmentTV: UITableView!
     
     @IBOutlet weak var mainMenuContainerView: UIStackView!
@@ -38,26 +38,12 @@ class HomeVC: UIViewController {
     @IBOutlet weak var alertBtn: UIButton!
     
     
-    @IBAction func productBtn(_ sender: Any) {
-    }
-    
-    
-    
-    @IBAction func listShopBtn(_ sender: Any) {
-    }
-    
-    
-    @IBAction func listBtn(_ sender: Any) {
-    }
-    
-    
-    @IBAction func homeBtn(_ sender: Any) {
-    }
+   
     
     var traslate = LanguageManagement()
     var endPoint = EndPoitModel()
     var segueText: String?
-
+    
     
     var homeVieModel = HomeViewModel()
     var botomElemets = BottomElementViewModel()
@@ -75,12 +61,18 @@ class HomeVC: UIViewController {
     
     func configureView() {
         
-        singInOutBtn.imageView?.image = UIImage(named: "singin-29")
-//        singInOutBtn.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
+        
+
         if  logedIn == true {
-//            singInOutBtn.isHidden = true
-            singInOutBtn.imageView?.image = UIImage(systemName: "gear")
-            UserDefaults.standard.removeObject(forKey: UserDefaults.UserDefaultsKeys.isLoggedIn.rawValue)
+            
+            listLbl.imageView?.image = UIImage(named: "list-29")
+            listShopBtnLbl.imageView?.image = UIImage(named: "shopping-29")
+            alertBtnList.imageView?.image = UIImage(named: "bell_fill-29")
+    //        logoImgView.imageView?.image = UIImage(named: "icono-40")
+            singInOutBtn.imageView?.image = UIImage(named: "gear-40")
+            mainMenuContainerView.isHidden = false
+        }else{
+            singInOutBtn.imageView?.image = UIImage(named: "singin-40")
         }
         
         configuereViewTopElements()
@@ -94,7 +86,7 @@ class HomeVC: UIViewController {
         self.mainElementCV.layer.cornerRadius = 5.0
         self.mainElementCV.layer.masksToBounds = true
         
-      
+        
         self.mainElementCV.dataSource = self
         self.mainElementCV.delegate = self
         
@@ -111,7 +103,7 @@ class HomeVC: UIViewController {
         self.singleElmentTV.dataSource = self
         self.singleElmentTV.delegate = self
     }
-
+    
     
     private func bind() {
         homeVieModel.refreshData = { [weak self] () in
@@ -147,14 +139,37 @@ class HomeVC: UIViewController {
     /// - Parameter sender: <#sender description#>
     @IBAction func singInOutBtn(_ sender: UIButton) {
         
-
         if  logedIn == true {
             
-            singInOutBtn.imageView?.image = UIImage(systemName: "gear")
-            
+            singInOutBtn.imageView?.image = UIImage(named: "gear-40")
+            UserDefaults.standard.clearAllUSerDefaultsData()
+//            performSegue(withIdentifier: "goAuthSB", sender: self)
+        }else{
+            singInOutBtn.imageView?.image = UIImage(named: "singin-40")
+            performSegue(withIdentifier: "goAuthSB", sender: self)
         }
         
-        performSegue(withIdentifier: "goAuthSB", sender: self)
+        
+    }
+    
+    @IBAction func productBtn(_ sender: Any) {
+        listLbl.imageView?.image = UIImage(named: "list-29")
+       
+    }
+    
+    
+    
+    @IBAction func listShopBtn(_ sender: Any) {
+        listShopBtnLbl.imageView?.image = UIImage(named: "shopping-29")
+        
+    }
+    
+    
+    @IBAction func listBtn(_ sender: Any) {
+    }
+    
+    
+    @IBAction func homeBtn(_ sender: Any) {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -202,7 +217,6 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
 
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
-    
     /// <#Description#>
     /// - Parameters:
     ///   - tableView: <#tableView description#>
@@ -216,7 +230,6 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         return 30
     }
     
-    
     /// <#Description#>
     /// - Parameters:
     ///   - tableView: <#tableView description#>
@@ -225,7 +238,6 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return botomElemets.itemsBotom.count
     }
-    
     
     /// <#Description#>
     /// - Parameters:
@@ -245,7 +257,5 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         return cell!
         
     }
-    
-
 }
 

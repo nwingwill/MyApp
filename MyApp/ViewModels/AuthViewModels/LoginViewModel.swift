@@ -50,8 +50,10 @@ class LoginViewModel {
                         if let nombre = querySnapShot?.get("nombre") {
                             
                             self!.alert.showAlert(title: "Exito", message: "Bienvenido... \(nombre)", alertType: .success)
-                            //                UserDefaults.standard.setLoggedIn(value: true)
-                            //                UserDefaults.standard.setUserName(value: nombre)
+                            UserDefaults.standard.setLoggedIn(value: true)
+                            UserDefaults.standard.setUserName(value: "\(nombre)")
+                            UserDefaults.standard.setUserUUID(value: "\(userUUID)")
+                            UserDefaults.standard.setUSerEmail(value: "\(email)")
                             self!.item = true
                         }
                     }

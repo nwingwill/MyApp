@@ -59,7 +59,9 @@ class RegisterViewModel {
                         db.collection("profile").document(email).setData(["userUID":userUUID,"email": email,"nombre":nombre, "client": true,"status":"active"])
                         self!.alert.showAlert(title: "Exito", message: "Bienvenido... \(nombre)", alertType: .success)
                         UserDefaults.standard.setLoggedIn(value: true)
-                        UserDefaults.standard.setUserName(value: nombre)
+                        UserDefaults.standard.setUserName(value: "\(nombre)")
+                        UserDefaults.standard.setUserUUID(value: "\(userUUID)")
+                        UserDefaults.standard.setUSerEmail(value: "\(email)")
                         self!.item = true
                     }
                 }

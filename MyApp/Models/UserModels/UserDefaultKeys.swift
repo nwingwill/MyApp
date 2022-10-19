@@ -38,11 +38,29 @@ extension UserDefaults {
         return string(forKey: UserDefaultsKeys.userName.rawValue) ?? ""
     }
     
+    func setUSerEmail(value: String) {
+        set(value, forKey: UserDefaultsKeys.userEmail.rawValue)
+    }
+    
+    func getUserEmail(value: String) -> String {
+        return string(forKey: UserDefaultsKeys.userEmail.rawValue) ?? ""
+    }
+    
+    func clearAllUSerDefaultsData(){
+        let userDefaults = UserDefaults.standard
+        let dics = userDefaults.dictionaryRepresentation()
+        for key in dics {
+            userDefaults.removeObject(forKey: key.key)
+        }
+        
+        userDefaults.synchronize()
+    }
+    
     enum UserDefaultsKeys : String {
         case isLoggedIn
         case userUUID
         case userName
-        
+        case userEmail
     }
     
 }
