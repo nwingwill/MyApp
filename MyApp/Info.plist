@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>FIREBASE_STORAGE_URL</key>
+	<string>$(FIREBASE_STORAGE_URL)</string>
 	<key>FIREBASE_FILE_CONFIGURATION</key>
 	<string>$(FIREBASE_FILE_CONFIGURATION)</string>
 	<key>API_KEY</key>

@@ -6,5 +6,23 @@ target 'MyApp' do
   use_frameworks!
 
   # Pods for MyApp
+  #Networking
+  pod 'Alamofire'
+  
+  #Image from url
+  pod 'SDWebImage'
+  
+  #Floating Menu
+  pod 'FloatingButton'
 
+  #Calendar Tool
+  pod 'CalendarKit'
+  
+  #Skeleton loading
+  pod 'SkeletonView'
+  
+  #Reactive Progamation
+  pod 'RxSwift', '6.5.0'
+  pod 'RxCocoa', '6.5.0'
+  
 end

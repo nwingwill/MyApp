@@ -17,9 +17,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSc-a5-lyz">
-                                <rect key="frame" x="16" y="668" width="358" height="35"/>
+                                <rect key="frame" x="16" y="668.66666666666663" width="358" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="btnContinue"/>
+                                <buttonConfiguration key="configuration" style="plain" title="lcbtnContinue"/>
                                 <connections>
                                     <action selector="btnContinueToHome:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DPf-C9-REG"/>
                                 </connections>

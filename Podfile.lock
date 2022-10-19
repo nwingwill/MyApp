@@ -1,3 +1,48 @@
-PODFILE CHECKSUM: 885932669f6d9375b36a9057cd2f8d369e3f6677
+PODS:
+  - Alamofire (5.6.2)
+  - CalendarKit (1.1.6)
+  - FloatingButton (1.0.0)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
+  - SDWebImage (5.13.4):
+    - SDWebImage/Core (= 5.13.4)
+  - SDWebImage/Core (5.13.4)
+  - SkeletonView (1.30.3)
+
+DEPENDENCIES:
+  - Alamofire
+  - CalendarKit
+  - FloatingButton
+  - RxCocoa (= 6.5.0)
+  - RxSwift (= 6.5.0)
+  - SDWebImage
+  - SkeletonView
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - CalendarKit
+    - FloatingButton
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SDWebImage
+    - SkeletonView
+
+SPEC CHECKSUMS:
+  Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
+  CalendarKit: c76fa678d94cb0f3e7da2a0695c2989fe407cc2b
+  FloatingButton: 2eff9eda2c1b0caa61de9f094da29cd5522f25fc
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  SDWebImage: e5cc87bf736e60f49592f307bdf9e157189298a3
+  SkeletonView: f5b099c708e42a278079a12bcaaf71c303be65a3
+
+PODFILE CHECKSUM: faaf4b1cfd89c8a8aa5fd36c9fb8dd056164e642
 
 COCOAPODS: 1.11.3
