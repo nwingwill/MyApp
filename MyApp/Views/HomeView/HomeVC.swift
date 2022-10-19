@@ -23,6 +23,37 @@ class HomeVC: UIViewController {
 
     @IBOutlet weak var singleElmentTV: UITableView!
     
+    @IBOutlet weak var mainMenuContainerView: UIStackView!
+    
+    @IBOutlet weak var homeBtnLbl: UIButton!
+    
+    @IBOutlet weak var listLbl: UIButton!
+    
+    @IBOutlet weak var listShopBtnLbl: UIButton!
+    @IBOutlet weak var productBtnList: UIButton!
+    
+    @IBOutlet weak var alertBtnList: UIButton!
+    
+    
+    @IBOutlet weak var alertBtn: UIButton!
+    
+    
+    @IBAction func productBtn(_ sender: Any) {
+    }
+    
+    
+    
+    @IBAction func listShopBtn(_ sender: Any) {
+    }
+    
+    
+    @IBAction func listBtn(_ sender: Any) {
+    }
+    
+    
+    @IBAction func homeBtn(_ sender: Any) {
+    }
+    
     var traslate = LanguageManagement()
     var endPoint = EndPoitModel()
     var segueText: String?
@@ -31,7 +62,6 @@ class HomeVC: UIViewController {
     var homeVieModel = HomeViewModel()
     var botomElemets = BottomElementViewModel()
     var topElements = TopElementViewModel()
-    
     let logedIn = UserDefaults.standard.isLoggedIn()
     
     override func viewDidLoad() {
@@ -45,6 +75,8 @@ class HomeVC: UIViewController {
     
     func configureView() {
         
+        singInOutBtn.imageView?.image = UIImage(named: "singin-29")
+//        singInOutBtn.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
         if  logedIn == true {
 //            singInOutBtn.isHidden = true
             singInOutBtn.imageView?.image = UIImage(systemName: "gear")
@@ -153,11 +185,16 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mainElement", for: indexPath) as? MainElementCVViewCell
         //        let item = items[indexPath.row]
         let item = topElements.itemsTop[indexPath.row]
-        let imageUrl = "https://image.tmdb.org/t/p/original\(item.itemImage)"
-        
-        cell?.mainImgImageView.sd_setImage(with: URL(string: imageUrl))
-            cell?.titleLbl.text = ""
-   
+        if item.itemImage == "" {
+            let imageUrl = "https://st.depositphotos.com/1000947/1749/i/600/depositphotos_17494035-stock-photo-creative-elegant-design-for-your.jpg"
+            cell?.mainImgImageView.sd_setImage(with: URL(string: imageUrl))
+        }else{
+            let imageUrl = "https://image.tmdb.org/t/p/original\(item.itemImage)"
+            
+            cell?.mainImgImageView.sd_setImage(with: URL(string: imageUrl))
+            
+        }
+        cell?.titleLbl.text = ""
         return cell!
     }
 }

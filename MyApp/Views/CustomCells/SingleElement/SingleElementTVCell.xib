@@ -31,7 +31,7 @@
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu." textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="KXT-TE-FdJ">
-                                <rect key="frame" x="113" y="75" width="207" height="69"/>
+                                <rect key="frame" x="113" y="75" width="199" height="69"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="KXT-TE-FdJ" secondAttribute="height" multiplier="3:1" id="ieT-qq-Whm"/>
@@ -61,7 +61,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mLB-Ge-D3d" secondAttribute="height" multiplier="85:21" id="7W5-Io-a9U"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -78,6 +78,7 @@
                             <constraint firstItem="yYa-SH-pAP" firstAttribute="leading" secondItem="2Jn-98-1mC" secondAttribute="trailing" constant="4" id="FaK-a8-n0H"/>
                             <constraint firstAttribute="trailing" secondItem="mLB-Ge-D3d" secondAttribute="trailing" constant="8" id="Fum-Zt-t0m"/>
                             <constraint firstItem="2Jn-98-1mC" firstAttribute="leading" secondItem="XNB-6y-kf6" secondAttribute="leading" id="NQX-1B-NwW"/>
+                            <constraint firstAttribute="trailing" secondItem="KXT-TE-FdJ" secondAttribute="trailing" constant="8" id="PNO-x0-nXx"/>
                             <constraint firstAttribute="trailing" secondItem="KXT-TE-FdJ" secondAttribute="trailing" id="VwZ-fv-GAV"/>
                             <constraint firstAttribute="trailing" secondItem="mLB-Ge-D3d" secondAttribute="trailing" constant="8" id="ZAu-eI-XkV"/>
                             <constraint firstItem="mLB-Ge-D3d" firstAttribute="top" secondItem="XNB-6y-kf6" secondAttribute="top" constant="8" id="gRM-LD-uwN"/>

@@ -196,7 +196,9 @@ class ViewController: UIViewController {
     
     
     @IBAction func btnContinueToHome(_ sender: Any) {
-        lblBtnContinueToHome.titleLabel?.text = traslate.internatiolization(keyText: "lcbtnContinue", commentText: "Continue...")
+//        lblBtnContinueToHome.titleLabel?.text = traslate.internatiolization(keyText: "lcbtnContinue", commentText: "Continue...")
+        lblBtnContinueToHome.titleLabel?.text = ""
+        lblBtnContinueToHome.imageView?.image = UIImage(named: "circle.dashed")
         lblBtnContinueToHome.isHidden = true
         performSegue(withIdentifier: "goHomeSB", sender: self)
         

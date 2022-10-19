@@ -35,13 +35,12 @@ class TopElementViewModel {
         let languaje = LanguageModel()
         let url = "\(ConfigEnviroments.BASE_URL)\(endPoint)\(parametersConfig.api_key)\(ConfigEnviroments.API_KEY)\(parametersConfig.language)\(languaje.englisUS)\(parametersConfig.page)1"
         
-        debug.debugMessage(error: url, message: "Revision de url: ")
         let request = AF.request("\(url)")
         
         request.responseDecodable  (of: TopElementsModels.self) { (response) in
             
             if response.error != nil {
-//                print("Error en la consulta: \(response.error?.errorDescription ?? "...")")
+
                 self.debug.debugMessage(error: "\(response.error?.errorDescription ?? "...") \(String(describing: response.error))", message: "Error en la consulta:")
                 
                 self.debug.debugMessage(error: url, message: "Revision Url:")
