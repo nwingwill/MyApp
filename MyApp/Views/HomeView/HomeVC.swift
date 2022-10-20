@@ -49,6 +49,8 @@ class HomeVC: UIViewController {
     var botomElemets = BottomElementViewModel()
     var topElements = TopElementViewModel()
     let logedIn = UserDefaults.standard.isLoggedIn()
+    let navigationOPtion = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,18 +61,36 @@ class HomeVC: UIViewController {
         
     }
     
+    func configMenuButton(button: UIButton, name: String) -> UIButton {
+        button.imageView?.image = UIImage(named: "\(name)")
+        button.imageView?.layer.borderColor = UIColor.white.cgColor
+        button.backgroundColor = UIColor.gray.lighter
+        button.layer.cornerRadius = 5
+        button.layer.shadowColor = UIColor.white.cgColor
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.white.cgColor
+        
+        return button
+    }
+    
     func configureView() {
         
         
         
         if  logedIn == true {
             
-            listLbl.imageView?.image = UIImage(named: "list-29")
-//            listLbl.layer.borderWidth
-            listShopBtnLbl.imageView?.image = UIImage(named: "shopping-29")
-            alertBtnList.imageView?.image = UIImage(named: "bell_fill-29")
-            productBtnList.imageView?.image = UIImage(named: "calendar-29")
-            //        logoImgView.imageView?.image = UIImage(named: "icono-40")
+            let homeBtnLbl = configMenuButton(button: homeBtnLbl, name: "main-60")
+            let buttonList = configMenuButton(button: listLbl, name: "list-29")
+            let buttonShop = configMenuButton(button: listShopBtnLbl, name: "shopping-29")
+            let alertBtnList = configMenuButton(button: alertBtnList, name: "bell_fill-29")
+            let productBtnList = configMenuButton(button: productBtnList, name: "calendar-29")
+            //            let listShopBtnLbl = configMenuButton(button: listShopBtnLbl, name: "shopping-29")
+            buttonList.isHidden = true
+            buttonShop.isHidden = true
+            alertBtnList.isHidden = true
+            productBtnList.isHidden = true
+            homeBtnLbl.isSkeletonable = true
+            
             singInOutBtn.imageView?.image = UIImage(named: "gear-40")
             mainMenuContainerView.isHidden = false
         }else{
@@ -126,6 +146,7 @@ class HomeVC: UIViewController {
             
         }
     }
+    
     private func bindBottom() {
         botomElemets.refreshData = { [weak self] () in
             
@@ -163,7 +184,8 @@ class HomeVC: UIViewController {
     
     @IBAction func listShopBtn(_ sender: Any) {
         listShopBtnLbl.imageView?.image = UIImage(named: "shopping-29")
-        
+        performSegue(withIdentifier: "goToListElements", sender: self)
+        print("goToListElements")
     }
     
     
@@ -172,17 +194,51 @@ class HomeVC: UIViewController {
     
     
     @IBAction func homeBtn(_ sender: Any) {
+        
+        if listLbl.isHidden == false || listShopBtnLbl.isHidden == false || alertBtnList.isHidden == false || productBtnList.isHidden == false {
+            
+            
+            listLbl.isHidden = true
+            listShopBtnLbl.isHidden = true
+            alertBtnList.isHidden = true
+            productBtnList.isHidden = true
+            
+    } else {
+        listLbl.isHidden = false
+        listShopBtnLbl.isHidden = false
+        alertBtnList.isHidden = false
+        productBtnList.isHidden = false
     }
+}
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "goAuthSB" {
+//        if segue.identifier == "goAuthSB" {
+//            guard let goToViewStoryBoard = segue.destination as? LoginVC else{return}
+//            goToViewStoryBoard.modalPresentationStyle = .fullScreen
+//
+//            goToViewStoryBoard.dismiss(animated: true, completion: nil)
+//
+//        }
+        
+        switch navigationOPtion {
+            
+        case "goAuthSB":
             guard let goToViewStoryBoard = segue.destination as? LoginVC else{return}
             goToViewStoryBoard.modalPresentationStyle = .fullScreen
-            
             goToViewStoryBoard.dismiss(animated: true, completion: nil)
+            break
             
+        case "goToListElements":
+            guard let goToViewStoryBoard = segue.destination as? ListDetailVC else{return}
+            goToViewStoryBoard.modalPresentationStyle = .fullScreen
+            goToViewStoryBoard.dismiss(animated: true, completion: nil)
+            break
+            
+        default:
+            break
         }
+        
     }
     
 }

@@ -15,9 +15,9 @@
         <!--HomeVC-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="HomeSB" id="Y6W-OH-hqX" customClass="HomeVC" customModule="MyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeSB" modalTransitionStyle="crossDissolve" id="Y6W-OH-hqX" customClass="HomeVC" customModule="MyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="264" translatesAutoresizingMaskIntoConstraints="NO" id="6w6-TL-6bC">
@@ -100,7 +100,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="85" height="34"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="house.fill" catalog="system" title="" buttonSize="medium"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="main-60" title="" buttonSize="medium"/>
                                                 <connections>
                                                     <action selector="homeBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="mfD-6P-hnx"/>
                                                 </connections>
@@ -197,16 +197,27 @@
                         <outlet property="singInOutBtn" destination="mvo-Gk-bko" id="pbh-LE-NxN"/>
                         <outlet property="singleElmentTV" destination="5bv-bI-cXp" id="Gm3-fw-0r7"/>
                         <segue destination="Zbc-SL-lmB" kind="show" identifier="goAuthSB" id="L4R-QS-9Bm"/>
+                        <segue destination="4Bl-df-uPb" kind="show" identifier="goToListElements" id="16b-io-pIX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="36.231884057971016" y="2.6785714285714284"/>
         </scene>
+        <!--listDeatailSB-->
+        <scene sceneID="dLt-xY-Iou">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xkC-Pk-q3W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="listDetailMainSB" storyboardName="ElementListDetailSB" referencedIdentifier="listDeatailSB" id="4Bl-df-uPb" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="zJ7-eY-3ND"/>
+                </viewControllerPlaceholder>
+            </objects>
+            <point key="canvasLocation" x="37" y="408"/>
+        </scene>
         <!--AuthVC-->
         <scene sceneID="dWF-ZU-H4T">
             <objects>
-                <viewController id="Zbc-SL-lmB" userLabel="AuthVC" customClass="LoginVC" customModule="MyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="Zbc-SL-lmB" userLabel="AuthVC" customClass="LoginVC" customModule="MyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c3X-4N-nIK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -371,7 +382,7 @@
         <!--RegisterVC-->
         <scene sceneID="Nv3-Ww-nwC">
             <objects>
-                <viewController id="S6e-hV-6Ov" userLabel="RegisterVC" customClass="AuthVC" customModule="MyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="S6e-hV-6Ov" userLabel="RegisterVC" customClass="AuthVC" customModule="MyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n5u-sv-zmJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -564,8 +575,8 @@
     <resources>
         <image name="ImgTopNwing" width="2588" height="2026"/>
         <image name="circle.dashed" catalog="system" width="128" height="123"/>
-        <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="icon-60" width="60" height="60"/>
+        <image name="main-60" width="60" height="60"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
