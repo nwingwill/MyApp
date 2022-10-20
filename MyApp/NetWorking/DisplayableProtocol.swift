@@ -14,5 +14,6 @@ protocol DisplayableProtocol {
     var listTitle: String { get }
     var itemImage: String {get}
     var listItems: [Int] { get }
+    var idItem: String { get }
 //    var listItems: [Int] { get }
 }

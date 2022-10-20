@@ -38,7 +38,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var alertBtn: UIButton!
     
     
-   
+    
     
     var traslate = LanguageManagement()
     var endPoint = EndPoitModel()
@@ -62,13 +62,15 @@ class HomeVC: UIViewController {
     func configureView() {
         
         
-
+        
         if  logedIn == true {
             
             listLbl.imageView?.image = UIImage(named: "list-29")
+//            listLbl.layer.borderWidth
             listShopBtnLbl.imageView?.image = UIImage(named: "shopping-29")
             alertBtnList.imageView?.image = UIImage(named: "bell_fill-29")
-    //        logoImgView.imageView?.image = UIImage(named: "icono-40")
+            productBtnList.imageView?.image = UIImage(named: "calendar-29")
+            //        logoImgView.imageView?.image = UIImage(named: "icono-40")
             singInOutBtn.imageView?.image = UIImage(named: "gear-40")
             mainMenuContainerView.isHidden = false
         }else{
@@ -143,7 +145,7 @@ class HomeVC: UIViewController {
             
             singInOutBtn.imageView?.image = UIImage(named: "gear-40")
             UserDefaults.standard.clearAllUSerDefaultsData()
-//            performSegue(withIdentifier: "goAuthSB", sender: self)
+            //            performSegue(withIdentifier: "goAuthSB", sender: self)
         }else{
             singInOutBtn.imageView?.image = UIImage(named: "singin-40")
             performSegue(withIdentifier: "goAuthSB", sender: self)
@@ -154,7 +156,7 @@ class HomeVC: UIViewController {
     
     @IBAction func productBtn(_ sender: Any) {
         listLbl.imageView?.image = UIImage(named: "list-29")
-       
+        
     }
     
     
@@ -203,14 +205,21 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
         if item.itemImage == "" {
             let imageUrl = "https://st.depositphotos.com/1000947/1749/i/600/depositphotos_17494035-stock-photo-creative-elegant-design-for-your.jpg"
             cell?.mainImgImageView.sd_setImage(with: URL(string: imageUrl))
+            cell?.titleLbl.text = item.titleLabelText
         }else{
             let imageUrl = "https://image.tmdb.org/t/p/original\(item.itemImage)"
             
             cell?.mainImgImageView.sd_setImage(with: URL(string: imageUrl))
-            
+            cell?.titleLbl.text = ""
         }
-        cell?.titleLbl.text = ""
+        
+        
         return cell!
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = topElements.itemsTop[indexPath.row]
+        print("Taped.: \(item.idItem)")
     }
 }
 
@@ -247,15 +256,28 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "singleElement", for: indexPath) as? SingleElementTVCell
         //        let item = items[indexPath.row]
+        
+//        cell?.frame.size = CGSize(width: 300, height: 150)
         let item = botomElemets.itemsBotom[indexPath.row]
-        let imageUrl = "https://image.tmdb.org/t/p/original\(item.itemImage)"
-        cell?.singleImageView.sd_setImage(with: URL(string: imageUrl))
+        if item.itemImage == "" {
+            let imageUrl = "https://st.depositphotos.com/1000947/1749/i/600/depositphotos_17494035-stock-photo-creative-elegant-design-for-your.jpg"
+            cell?.singleImageView.sd_setImage(with: URL(string: imageUrl))
+//            cell?.singleImageView.frame = CGRect(x: 0, y: 0, width: 120, height: 100)
+
+        }else{
+            let imageUrl = "https://image.tmdb.org/t/p/original\(item.itemImage)"
+            cell?.singleImageView.sd_setImage(with: URL(string: imageUrl))
+//            cell?.singleImageView.layer.cornerRadius = 10
+        }
         cell?.titleLbl.text = item.titleLabelText
         cell?.detailTex.text = item.listTitle
-        cell?.cost.text = "$\(item.item1)"
-        
+        cell?.cost.text = "$\(item.idItem)"
         return cell!
         
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = botomElemets.itemsBotom[indexPath.row]
+        print("Tapped: \(item.idItem)")
     }
 }
 

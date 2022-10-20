@@ -16,7 +16,7 @@ struct ResultBotomModel: Decodable {
     let originalTitle: String
     let overview: String
     let popularity: Double
-    let posterPath: String
+    let posterPath: String?
     let releaseDate: String
     let title: String
     let video: Bool
@@ -42,8 +42,13 @@ struct ResultBotomModel: Decodable {
 }
 
 extension ResultBotomModel: DisplayableProtocol {
+    
+    var idItem: String {
+        String(id)
+    }
+    
     var itemImage: String {
-        posterPath
+        (posterPath ?? "")
     }
     
     var titleLabelText: String {

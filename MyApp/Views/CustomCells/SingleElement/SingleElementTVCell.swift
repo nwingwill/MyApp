@@ -24,7 +24,7 @@ class SingleElementTVCell: UITableViewCell {
         self.singleImageView.layer.cornerRadius = 10.0
         self.singleImageView.layer.masksToBounds = true
         self.singleImageView.layer.shadowColor = UIColor.black.cgColor
-        
+//        self.singleImageView.frame = CGRectMake(0, 0, 50, 100)
         self.titleLbl.shadowColor = UIColor.white
         self.titleLbl.layer.shadowColor = UIColor.white.cgColor
         self.titleLbl.layer.cornerRadius = 10.0

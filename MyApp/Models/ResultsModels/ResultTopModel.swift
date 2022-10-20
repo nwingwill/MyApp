@@ -8,46 +8,46 @@
 import Foundation
 
 struct ResultTopModel: Decodable {
-    let adult: Bool
+    //    let adult: Bool
     let backdropPath: String?
     let id: Int
-//    let name: String
-    let originalLanguage: OriginalLanguage
-//    let originalName: String
+    //    let name: String?
+    //    let originalLanguage: OriginalLanguage
+    //    let originalName: String?
     let overview: String
     let posterPath: String?
-    let mediaType: MediaType
+    //    let mediaType: MediaType
     let genreIDS: [Int]
-    let popularity: Double
-//    let firstAirDate: String
-    let voteAverage: Double
-    let voteCount: Int
-//    let originCountry: [String]
-//    let title : String
-//    let originalTitle : String
-//    let releaseDate: String
-//    let video: Bool
+    //    let popularity: Double
+    //    let firstAirDate: String?
+    //    let voteAverage: Double
+    //    let voteCount: Int
+    //    let originCountry: [String]?
+    //    let title: String?
+    //    let originalTitle: String?
+    //    let releaseDate: String?
+    //    let video: Bool?
     
     enum CodingKeys: String, CodingKey {
-        case adult
+        //        case adult
         case backdropPath = "backdrop_path"
         case id
 //        case name
-        case originalLanguage = "original_language"
-//        case originalName = "original_name"
+        //        case originalLanguage = "original_language"
+        //        case originalName = "original_name"
         case overview
         case posterPath = "poster_path"
-        case mediaType = "media_type"
+        //        case mediaType = "media_type"
         case genreIDS = "genre_ids"
-        case popularity
-//        case firstAirDate = "first_air_date"
-        case voteAverage = "vote_average"
-        case voteCount = "vote_count"
-//        case originCountry = "origin_country"
-//        case title
-//        case originalTitle = "original_title"
-//        case releaseDate = "release_date"
-//        case video
+        //        case popularity
+        //        case firstAirDate = "first_air_date"
+        //        case voteAverage = "vote_average"
+        //        case voteCount = "vote_count"
+        //        case originCountry = "origin_country"
+        //        case title
+        //        case originalTitle = "original_title"
+        //        case releaseDate = "release_date"
+        //        case video
     }
     
     enum MediaType: String, Codable {
@@ -63,12 +63,13 @@ struct ResultTopModel: Decodable {
 }
 
 extension ResultTopModel: DisplayableProtocol {
+    
     var itemImage: String {
         (posterPath ?? "")
     }
     
     var titleLabelText: String {
-        String(voteAverage)
+        overview
     }
     
     var subtitleLabelText: String {
@@ -76,15 +77,19 @@ extension ResultTopModel: DisplayableProtocol {
     }
     
     var item1: (label: String, value: String) {
-        ("Popularity:", String(popularity))
+        ("Popularity:", overview)
     }
     
     var listTitle: String {
-        String(voteCount)
+        overview
     }
     
     var listItems: [Int] {
         genreIDS
+    }
+    
+    var idItem: String {
+        String(id)
     }
 }
 
