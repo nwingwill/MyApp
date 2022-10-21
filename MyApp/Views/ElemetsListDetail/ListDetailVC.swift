@@ -11,7 +11,9 @@ class ListDetailVC: UIViewController {
     
     
     
-    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var goToHomeBtn: UIBarButtonItem!
+    
+  
     
     @IBOutlet weak var singleElmentListTV: UITableView!
     
@@ -26,7 +28,8 @@ class ListDetailVC: UIViewController {
     let logedIn = UserDefaults.standard.isLoggedIn()
     let navigationOPtion = ""
     
-
+    @IBOutlet weak var homeBtnLbl: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,7 +54,7 @@ class ListDetailVC: UIViewController {
     }
     
     func configureViewBotomElemts(){
-        
+        //Thread 1: Fatal error: Unexpectedly found nil while implicitly unwrapping an Optional value
         botomElemets.retriveDataEndPoint(endPoint: endPoint.nowPlayingEndpoint)
         self.singleElmentListTV.register(UINib(nibName: "SingleElementTVCell", bundle: nil), forCellReuseIdentifier: "singleElement")
         
@@ -61,26 +64,46 @@ class ListDetailVC: UIViewController {
         self.singleElmentListTV.dataSource = self
         self.singleElmentListTV.delegate = self
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    
+    
+//    @IBAction func homeBtnLbl(_ sender: Any) {
+//        let navigationOPtion = "ElementListDetailSB"
+//        self.performSegue(withIdentifier: "\(navigationOPtion)", sender: self)
+//    }
+    
+    @IBAction func gotoHomeBtn(_ sender: Any) {
+        let navigationOPtion = "goHomeHb"
+        self.performSegue(withIdentifier: "\(navigationOPtion)", sender: self)
     }
-    */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        switch navigationOPtion {
+            
+        case "goHomeHb":
+            guard let goToViewStoryBoard = segue.destination as? HomeVC else{return}
+            goToViewStoryBoard.modalPresentationStyle = .fullScreen
+            goToViewStoryBoard.dismiss(animated: true, completion: nil)
+            break
+            
+//        case "goToListElements":
+//            guard let goToViewStoryBoard = segue.destination as? ListDetailVC else{return}
+//            goToViewStoryBoard.modalPresentationStyle = .fullScreen
+//            goToViewStoryBoard.dismiss(animated: true, completion: nil)
+//            break
+            
+        default:
+            break
+        }
+        
+    }
 
 }
 
 extension ListDetailVC: UITableViewDelegate, UITableViewDataSource {
     
-    /// <#Description#>
-    /// - Parameters:
-    ///   - tableView: <#tableView description#>
-    ///   - section: <#section description#>
-    /// - Returns: <#description#>
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
     }
@@ -89,20 +112,12 @@ extension ListDetailVC: UITableViewDelegate, UITableViewDataSource {
         return 30
     }
     
-    /// <#Description#>
-    /// - Parameters:
-    ///   - tableView: <#tableView description#>
-    ///   - section: <#section description#>
-    /// - Returns: <#description#>
+   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return botomElemets.itemsBotom.count
     }
     
-    /// <#Description#>
-    /// - Parameters:
-    ///   - tableView: <#tableView description#>
-    ///   - indexPath: <#indexPath description#>
-    /// - Returns: <#description#>
+   
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "singleElement", for: indexPath) as? SingleElementTVCell
         //        let item = items[indexPath.row]

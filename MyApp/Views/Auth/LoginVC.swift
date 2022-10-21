@@ -30,7 +30,7 @@ class LoginVC: UIViewController {
     var traslate = LanguageManagement()
     var alert = AlertMessengeHelperVC()
     var userModel = [UserModel]()
-
+    let navigationOPtion = ""
     
     var result: Bool = false
     override func viewDidLoad() {
@@ -80,8 +80,8 @@ class LoginVC: UIViewController {
                     let secount = 3.0
                     DispatchQueue.main.asyncAfter(deadline: .now() + secount) {
                         
-                        let identifierSegue = "showLoginHomeAuth"
-                        self!.performSegue(withIdentifier: "\(identifierSegue)", sender: self)
+                        let navigationOPtion = "showLoginHomeAuth"
+                        self!.performSegue(withIdentifier: "\(navigationOPtion)", sender: self)
                     }
                 }else{
                     self!.alert.showAlert(title: "Failure", message: "Error al acceder", alertType: .failure)
@@ -93,8 +93,8 @@ class LoginVC: UIViewController {
     
     @IBAction func singUp(_ sender: Any) {
         
-        let identifierSegue = "goRegisterSB"
-        performSegue(withIdentifier: "\(identifierSegue)", sender: self)
+        let navigationOPtion = "goRegisterSB"
+        performSegue(withIdentifier: "\(navigationOPtion)", sender: self)
 //
     }
     
@@ -117,17 +117,36 @@ class LoginVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "showLoginHomeAuth" {
+//        if segue.identifier == "showLoginHomeAuth" {
+//            guard let goToViewStoryBoard = segue.destination as? HomeVC else{return}
+//            goToViewStoryBoard.modalPresentationStyle = .fullScreen
+//
+//            goToViewStoryBoard.dismiss(animated: true, completion: nil)
+//
+//        }else if segue.identifier == "goRegisterSB" {
+//            guard let goToViewStoryBoard = segue.destination as? AuthVC else{return}
+//            goToViewStoryBoard.modalPresentationStyle = .fullScreen
+//
+//            goToViewStoryBoard.dismiss(animated: true, completion: nil)
+//        }
+        
+        
+        switch navigationOPtion {
+            
+        case "showLoginHomeAuth":
             guard let goToViewStoryBoard = segue.destination as? HomeVC else{return}
             goToViewStoryBoard.modalPresentationStyle = .fullScreen
-            
             goToViewStoryBoard.dismiss(animated: true, completion: nil)
+            break
             
-        }else if segue.identifier == "goRegisterSB" {
+        case "goRegisterSB":
             guard let goToViewStoryBoard = segue.destination as? AuthVC else{return}
             goToViewStoryBoard.modalPresentationStyle = .fullScreen
-            
             goToViewStoryBoard.dismiss(animated: true, completion: nil)
+            break
+            
+        default:
+            break
         }
     }
 }

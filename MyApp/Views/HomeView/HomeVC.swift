@@ -213,14 +213,6 @@ class HomeVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-//        if segue.identifier == "goAuthSB" {
-//            guard let goToViewStoryBoard = segue.destination as? LoginVC else{return}
-//            goToViewStoryBoard.modalPresentationStyle = .fullScreen
-//
-//            goToViewStoryBoard.dismiss(animated: true, completion: nil)
-//
-//        }
-        
         switch navigationOPtion {
             
         case "goAuthSB":
