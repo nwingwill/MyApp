@@ -14,6 +14,8 @@
 		098A965428F30D550008CB2D /* DevelopConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 098A965328F30D550008CB2D /* DevelopConfig.xcconfig */; };
 		098A965628F30D920008CB2D /* QAConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 098A965528F30D920008CB2D /* QAConfig.xcconfig */; };
 		098A965A28F312830008CB2D /* ConfigEnviroments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098A965928F312830008CB2D /* ConfigEnviroments.swift */; };
+		09933FC6290195E5006E9942 /* ElementListDetailSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09933FC5290195E5006E9942 /* ElementListDetailSB.storyboard */; };
+		09933FC82901964B006E9942 /* ListDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09933FC72901964B006E9942 /* ListDetailVC.swift */; };
 		0994934C28F32AB2005227A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0994934B28F32AB2005227A7 /* GoogleService-Info.plist */; };
 		0994934F28F32C58005227A7 /* GoogleService-QA-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0994934D28F32C58005227A7 /* GoogleService-QA-Info.plist */; };
 		0994935028F32C58005227A7 /* GoogleService-Dev-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0994934E28F32C58005227A7 /* GoogleService-Dev-Info.plist */; };
@@ -93,6 +95,8 @@
 		098A965328F30D550008CB2D /* DevelopConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DevelopConfig.xcconfig; sourceTree = "<group>"; };
 		098A965528F30D920008CB2D /* QAConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = QAConfig.xcconfig; sourceTree = "<group>"; };
 		098A965928F312830008CB2D /* ConfigEnviroments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigEnviroments.swift; sourceTree = "<group>"; };
+		09933FC5290195E5006E9942 /* ElementListDetailSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ElementListDetailSB.storyboard; sourceTree = "<group>"; };
+		09933FC72901964B006E9942 /* ListDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailVC.swift; sourceTree = "<group>"; };
 		0994934428F32167005227A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		0994934628F3219F005227A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		0994934B28F32AB2005227A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -240,6 +244,15 @@
 			path = ViewModelsProtocols;
 			sourceTree = "<group>";
 		};
+		09933FC4290194FE006E9942 /* ElemetsListDetail */ = {
+			isa = PBXGroup;
+			children = (
+				09933FC5290195E5006E9942 /* ElementListDetailSB.storyboard */,
+				09933FC72901964B006E9942 /* ListDetailVC.swift */,
+			);
+			path = ElemetsListDetail;
+			sourceTree = "<group>";
+		};
 		0994934728F32260005227A7 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +278,7 @@
 		0994934928F32291005227A7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				09933FC4290194FE006E9942 /* ElemetsListDetail */,
 				09E4687D28FB33A000BEBAC3 /* Auth */,
 				09FCC68328F6201100E0BFBF /* CustomCells */,
 				09E4687C28FB328700BEBAC3 /* HomeView */,
@@ -557,6 +571,7 @@
 				09DBDF0D28F3992600756617 /* Localizable.strings in Resources */,
 				098A965628F30D920008CB2D /* QAConfig.xcconfig in Resources */,
 				09FCC68E28F6212100E0BFBF /* SingleElementTVCell.xib in Resources */,
+				09933FC6290195E5006E9942 /* ElementListDetailSB.storyboard in Resources */,
 				09FDACCE28F2F5E40011E6A3 /* Main.storyboard in Resources */,
 				0994934C28F32AB2005227A7 /* GoogleService-Info.plist in Resources */,
 				09FFFE2C28FC954D007A701C /* AlertMessengeHelperVC.xib in Resources */,
@@ -639,6 +654,7 @@
 				09DBDF5928F4C38D00756617 /* UserManagement.swift in Sources */,
 				09D1B8D128F70FB100F3D20D /* ResultModel.swift in Sources */,
 				09BC0F6B28F8AC2600C425DE /* ResultTopModel.swift in Sources */,
+				09933FC82901964B006E9942 /* ListDetailVC.swift in Sources */,
 				09F96B7C28FC2AE0009562C4 /* LoginVC.swift in Sources */,
 				09EBE63828F81EDB00911A70 /* HomeViewModel.swift in Sources */,
 				09FDACC928F2F5E40011E6A3 /* SceneDelegate.swift in Sources */,
