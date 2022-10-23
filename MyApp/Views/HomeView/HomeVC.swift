@@ -14,7 +14,7 @@ import SkeletonView
 class HomeVC: UIViewController {
     
     @IBOutlet weak var logoImgView: UIImageView!
-    @IBOutlet weak var appNameLbl: UILabel!
+//    @IBOutlet weak var appNameLbl: UILabel!
     
     @IBOutlet weak var singInOutBtn: UIButton!
     @IBOutlet weak var locationMV: MKMapView!
@@ -50,7 +50,7 @@ class HomeVC: UIViewController {
     var topElements = TopElementViewModel()
     let logedIn = UserDefaults.standard.isLoggedIn()
     let navigationOPtion = ""
-    
+    var alert = AlertMessengeHelperVC()
     
     override func viewDidLoad() {
         super.viewDidLoad()
