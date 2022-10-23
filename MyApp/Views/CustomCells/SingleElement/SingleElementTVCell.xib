@@ -39,7 +39,7 @@
                                     <constraint firstAttribute="width" secondItem="PnP-YU-Ypg" secondAttribute="height" multiplier="76:105" id="kGe-ng-BIe"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Lorem ipsum dolor sit er elit lamet." textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="zGz-XK-YCe">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Lorem ipsum dolor sit er elit lamet." textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGz-XK-YCe">
                                 <rect key="frame" x="189" y="99" width="153" height="143"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>

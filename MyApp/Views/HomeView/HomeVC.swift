@@ -180,14 +180,11 @@ class HomeVC: UIViewController {
         
     }
     
-    
-    
     @IBAction func listShopBtn(_ sender: Any) {
         listShopBtnLbl.imageView?.image = UIImage(named: "shopping-29")
         performSegue(withIdentifier: "goToListElements", sender: self)
         print("goToListElements")
     }
-    
     
     @IBAction func listBtn(_ sender: Any) {
     }

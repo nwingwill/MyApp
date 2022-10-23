@@ -76,7 +76,6 @@ class ListDetailVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        print("ID item in prepare: \(idItem!), navigationOption: \(navigationOPtion)")
         
         if navigationOPtion == "goHomeHb"  {
             guard let goToViewStoryBoard = segue.destination as? HomeVC else{return}
@@ -92,48 +91,6 @@ class ListDetailVC: UIViewController {
             destinationVC.dismiss(animated: true, completion: nil)
             
         }
-        
-//        if segue.identifier == "goListToDetailSG" {
-//            print("idItem = \(idItem)")
-//            let destinationVC : DetailElementVC = segue.destination as! DetailElementVC
-//            destinationVC.idItem = idItem
-//            destinationVC.modalPresentationStyle = .fullScreen
-//            destinationVC.dismiss(animated: true, completion: nil)
-//        } else {
-//
-//        }
-//        switch navigationOPtion {
-//
-//        case "goHomeHb":
-//
-//            guard let goToViewStoryBoard = segue.destination as? HomeVC else{return}
-//            goToViewStoryBoard.modalPresentationStyle = .fullScreen
-//            goToViewStoryBoard.dismiss(animated: true, completion: nil)
-//            break
-//
-//        case "goListToDetailSG":
-//            print("idItem = \(idItem)")
-//            if idItem == "" {
-//                guard let goToViewStoryBoard = segue.destination as? DetailElementVC else{return}
-//                goToViewStoryBoard.modalPresentationStyle = .fullScreen
-//                goToViewStoryBoard.dismiss(animated: true, completion: nil)
-//
-//                let destinationVC : DetailElementVC = segue.destination as! DetailElementVC
-//                print("idItem = \(idItem)")
-//                destinationVC.idItem = idItem
-//            }else{
-//                alert.showAlert(title: "Failure", message: "No id Selected", alertType: .failure)
-//            }
-//            break
-////        case "goListToDetailSG":
-////            guard let gotoDetailView = segue.destination as? DetailElementVC else {return}
-////            gotoDetailView.modalPresentationStyle = .fullScreen
-////            gotoDetailView.idItem = idItem
-////            break
-//
-//        default:
-//            break
-//        }
         
     }
 

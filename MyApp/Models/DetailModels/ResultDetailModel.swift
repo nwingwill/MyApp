@@ -133,7 +133,7 @@ struct SpokenLanguage: Decodable {
 extension ResultDetailModel: DisplayableProtocol {
     
     var itemImage: String {
-        backdropPath
+        posterPath
     }
     
     var titleLabelText: String {
