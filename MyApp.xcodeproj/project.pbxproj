@@ -38,6 +38,8 @@
 		096EE38A2904014E00DB82E3 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 096EE3892904014E00DB82E3 /* FirebaseStorage */; };
 		096EE38C2904014E00DB82E3 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 096EE38B2904014E00DB82E3 /* FirebaseStorageCombine-Community */; };
 		097E265529075F3D006A1FA6 /* BlurEfect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097E265429075F3D006A1FA6 /* BlurEfect.swift */; };
+		097E265729076435006A1FA6 /* MainMenuConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097E265629076435006A1FA6 /* MainMenuConfig.swift */; };
+		097E26592907691F006A1FA6 /* ButtonsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097E26582907691F006A1FA6 /* ButtonsConfig.swift */; };
 		098A965228F30D2F0008CB2D /* ProductionConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 098A965128F30D2F0008CB2D /* ProductionConfig.xcconfig */; };
 		098A965428F30D550008CB2D /* DevelopConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 098A965328F30D550008CB2D /* DevelopConfig.xcconfig */; };
 		098A965628F30D920008CB2D /* QAConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 098A965528F30D920008CB2D /* QAConfig.xcconfig */; };
@@ -47,6 +49,7 @@
 		0994934C28F32AB2005227A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0994934B28F32AB2005227A7 /* GoogleService-Info.plist */; };
 		0994934F28F32C58005227A7 /* GoogleService-QA-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0994934D28F32C58005227A7 /* GoogleService-QA-Info.plist */; };
 		0994935028F32C58005227A7 /* GoogleService-Dev-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0994934E28F32C58005227A7 /* GoogleService-Dev-Info.plist */; };
+		09A1413C290777C800B5ACF8 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A1413B290777C800B5ACF8 /* ProfileVC.swift */; };
 		09B404E32902D60A005E8572 /* DetailElementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B404E22902D60A005E8572 /* DetailElementModel.swift */; };
 		09B404E52902D8B9005E8572 /* ResultDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B404E42902D8B9005E8572 /* ResultDetailModel.swift */; };
 		09B404E82902DB28005E8572 /* DetailsViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B404E72902DB28005E8572 /* DetailsViewModels.swift */; };
@@ -97,6 +100,8 @@
 		096AFAF528FCDEB300C9F142 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		096AFAFB28FCE7A100C9F142 /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
 		097E265429075F3D006A1FA6 /* BlurEfect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurEfect.swift; sourceTree = "<group>"; };
+		097E265629076435006A1FA6 /* MainMenuConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuConfig.swift; sourceTree = "<group>"; };
+		097E26582907691F006A1FA6 /* ButtonsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsConfig.swift; sourceTree = "<group>"; };
 		098A965128F30D2F0008CB2D /* ProductionConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ProductionConfig.xcconfig; sourceTree = "<group>"; };
 		098A965328F30D550008CB2D /* DevelopConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DevelopConfig.xcconfig; sourceTree = "<group>"; };
 		098A965528F30D920008CB2D /* QAConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = QAConfig.xcconfig; sourceTree = "<group>"; };
@@ -108,6 +113,7 @@
 		0994934B28F32AB2005227A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0994934D28F32C58005227A7 /* GoogleService-QA-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-QA-Info.plist"; sourceTree = "<group>"; };
 		0994934E28F32C58005227A7 /* GoogleService-Dev-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Dev-Info.plist"; sourceTree = "<group>"; };
+		09A1413B290777C800B5ACF8 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		09B404E22902D60A005E8572 /* DetailElementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailElementModel.swift; sourceTree = "<group>"; };
 		09B404E42902D8B9005E8572 /* ResultDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailModel.swift; sourceTree = "<group>"; };
 		09B404E72902DB28005E8572 /* DetailsViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModels.swift; sourceTree = "<group>"; };
@@ -291,6 +297,7 @@
 		0994934928F32291005227A7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				09A141382907773600B5ACF8 /* ProfileView */,
 				09933FC4290194FE006E9942 /* ElemetsListDetail */,
 				09E4687D28FB33A000BEBAC3 /* Auth */,
 				09FCC68328F6201100E0BFBF /* CustomCells */,
@@ -307,6 +314,14 @@
 				0994934D28F32C58005227A7 /* GoogleService-QA-Info.plist */,
 			);
 			path = FireBaseFileConfig;
+			sourceTree = "<group>";
+		};
+		09A141382907773600B5ACF8 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				09A1413B290777C800B5ACF8 /* ProfileVC.swift */,
+			);
+			path = ProfileView;
 			sourceTree = "<group>";
 		};
 		09B404E12902D509005E8572 /* DetailModels */ = {
@@ -352,6 +367,8 @@
 				09DBDF4F28F4BC5E00756617 /* LanguageManagement.swift */,
 				09BF6F5828F866670042960F /* DebugManager.swift */,
 				097E265429075F3D006A1FA6 /* BlurEfect.swift */,
+				097E265629076435006A1FA6 /* MainMenuConfig.swift */,
+				097E26582907691F006A1FA6 /* ButtonsConfig.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -662,6 +679,7 @@
 				09BC0F6928F8AB6200C425DE /* ResultBotomModel.swift in Sources */,
 				098A965A28F312830008CB2D /* ConfigEnviroments.swift in Sources */,
 				09DBDF5728F4C33A00756617 /* UserManagementProtocol.swift in Sources */,
+				097E26592907691F006A1FA6 /* ButtonsConfig.swift in Sources */,
 				09B9F01728FE4699002FCD17 /* RegisterViewModel.swift in Sources */,
 				09FDACCB28F2F5E40011E6A3 /* ViewController.swift in Sources */,
 				09B404E82902DB28005E8572 /* DetailsViewModels.swift in Sources */,
@@ -681,6 +699,8 @@
 				09BC0F6528F8A83F00C425DE /* TopElementsModels.swift in Sources */,
 				09EBE63A28F82BE400911A70 /* fecthDataProtocol.swift in Sources */,
 				09FCC68D28F6212100E0BFBF /* SingleElementTVCell.swift in Sources */,
+				09A1413C290777C800B5ACF8 /* ProfileVC.swift in Sources */,
+				097E265729076435006A1FA6 /* MainMenuConfig.swift in Sources */,
 				09FDACD128F2F5E40011E6A3 /* MyApp.xcdatamodeld in Sources */,
 				090F239D28F8638400F8EB90 /* RequestServiceUrl.swift in Sources */,
 				09FDACC728F2F5E40011E6A3 /* AppDelegate.swift in Sources */,
