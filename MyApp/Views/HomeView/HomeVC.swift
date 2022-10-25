@@ -13,44 +13,32 @@ import SkeletonView
 
 class HomeVC: UIViewController {
     
+    //MARK: Outlet
     @IBOutlet weak var logoImgView: UIImageView!
-    //    @IBOutlet weak var appNameLbl: UILabel!
-    
     @IBOutlet weak var singInOutBtn: UIButton!
     @IBOutlet weak var locationMV: MKMapView!
     @IBOutlet weak var mainElementCV: UICollectionView!
-    
-    
     @IBOutlet weak var singleElmentTV: UITableView!
-    
     @IBOutlet weak var mainMenuContainerView: UIStackView!
-    
     @IBOutlet weak var homeBtnLbl: UIButton!
-    
     @IBOutlet weak var listLbl: UIButton!
-    
     @IBOutlet weak var listShopBtnLbl: UIButton!
     @IBOutlet weak var productBtnList: UIButton!
-    
     @IBOutlet weak var alertBtnList: UIButton!
-    
-    
     @IBOutlet weak var alertBtn: UIButton!
     
-    
-    
-    
+    //MARK: var and let
     var traslate = LanguageManagement()
     var endPoint = EndPoitModel()
     var segueText: String?
-    
-    
     var homeVieModel = HomeViewModel()
     var botomElemets = BottomElementViewModel()
     var topElements = TopElementViewModel()
     let logedIn = UserDefaults.standard.isLoggedIn()
     let navigationOPtion = ""
     var alert = AlertMessengeHelperVC()
+    var mainMenuConfig = MainMenuConfig()
+    var buttonsConfig = ButtonsConfig()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,46 +49,18 @@ class HomeVC: UIViewController {
         
     }
     
-    func configMenuButton(button: UIButton, name: String) -> UIButton {
-        button.imageView?.image = UIImage(named: "\(name)")
-        button.imageView?.layer.borderColor = UIColor.white.cgColor
-//        button.backgroundColor = UIColor.gray.lighter
-        button.backgroundColor = .clear
-        button.layer.cornerRadius = 5
-        button.layer.shadowColor = UIColor.white.cgColor
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.white.cgColor
-        
-        return button
-    }
-    
     func configureView() {
-        
-        
         
         if  logedIn == true {
             
-            let homeBtnLbl = configMenuButton(button: homeBtnLbl, name: "main-60")
+            let homeBtnLbl = buttonsConfig.configMenuButton(button: homeBtnLbl, name: "main-60")
             homeBtnLbl.isSkeletonable = true
             
             singInOutBtn.imageView?.image = UIImage(named: "gear-40")
             mainMenuContainerView.isHidden = false
-//            UIBba
             
             BlurEfect().blurEffectView(view: mainMenuContainerView)
-            
-//            let blurEfect = UIBlurEffect(style: .light)
-//            let blurView = UIVisualEffectView(effect: blurEfect)
-//            blurView.translatesAutoresizingMaskIntoConstraints = false
-//            mainMenuContainerView.backgroundColor = .clear
-//            mainMenuContainerView.insertSubview(blurView, at: 0)
-//            NSLayoutConstraint.activate([
-//                blurView.topAnchor.constraint(equalTo: mainMenuContainerView.topAnchor),
-//                blurView.leadingAnchor.constraint(equalTo: mainMenuContainerView.leadingAnchor),
-//                blurView.heightAnchor.constraint(equalTo: mainMenuContainerView.heightAnchor),
-//                blurView.widthAnchor.constraint(equalTo: mainMenuContainerView.widthAnchor)
-//
-//            ])
+            //goToProfile
             
         }else{
             singInOutBtn.imageView?.image = UIImage(named: "singin-40")
@@ -165,23 +125,19 @@ class HomeVC: UIViewController {
             
         }
     }
-    
-    
-    /// <#Description#>
-    /// - Parameter sender: <#sender description#>
+
     @IBAction func singInOutBtn(_ sender: UIButton) {
         
         if  logedIn == true {
             
             singInOutBtn.imageView?.image = UIImage(named: "gear-40")
-            UserDefaults.standard.clearAllUSerDefaultsData()
-            //            performSegue(withIdentifier: "goAuthSB", sender: self)
+//            UserDefaults.standard.clearAllUSerDefaultsData()
+            performSegue(withIdentifier: "goToProfile", sender: self)
+            
         }else{
             singInOutBtn.imageView?.image = UIImage(named: "singin-40")
             performSegue(withIdentifier: "goAuthSB", sender: self)
         }
-        
-        
     }
     
     @IBAction func productBtn(_ sender: Any) {
@@ -198,38 +154,26 @@ class HomeVC: UIViewController {
     @IBAction func listBtn(_ sender: Any) {
     }
     
-    func animatedMAinButton(buton: UIButton, action: Bool, time: Double) {
-        UIView.transition(with: buton, duration: time, options: .transitionCrossDissolve) {
-            buton.isHidden = action
-//            buton.isHidden = action
-//            buton.isHidden = action
-//            buton.isHidden = action
-        }
-    }
-    
     @IBAction func homeBtn(_ sender: Any) {
         
-        
-        let listLbl = configMenuButton(button: listLbl, name: "list-29")//Ticket
-        let listShopBtnLbl = configMenuButton(button: listShopBtnLbl, name: "shopping-29")//Shpping Car
-        let productBtnList = configMenuButton(button: productBtnList, name: "calendar-29")//Calendar
-        let alertBtnList = configMenuButton(button: alertBtnList, name: "bell_fill-29")//Alert
+        let listLbl = buttonsConfig.configMenuButton(button: listLbl, name: "list-29")//Ticket
+        let listShopBtnLbl = buttonsConfig.configMenuButton(button: listShopBtnLbl, name: "shopping-29")//Shpping Car
+        let productBtnList = buttonsConfig.configMenuButton(button: productBtnList, name: "calendar-29")//Calendar
+        let alertBtnList = buttonsConfig.configMenuButton(button: alertBtnList, name: "bell_fill-29")//Alert
         
         if listLbl.isHidden == false || listShopBtnLbl.isHidden == false || productBtnList.isHidden == false || alertBtnList.isHidden == false {
             
-            self.animatedMAinButton(buton: listLbl, action: true, time: 0.3)
-            self.animatedMAinButton(buton: listShopBtnLbl, action: true, time: 0.4)
-            self.animatedMAinButton(buton: productBtnList, action: true, time: 0.5)
-            self.animatedMAinButton(buton: alertBtnList, action: true, time: 0.6)
-            
-
+            mainMenuConfig.animatedMAinButton(buton: listLbl, action: true, time: 0.3)
+            mainMenuConfig.animatedMAinButton(buton: listShopBtnLbl, action: true, time: 0.4)
+            mainMenuConfig.animatedMAinButton(buton: productBtnList, action: true, time: 0.5)
+            mainMenuConfig.animatedMAinButton(buton: alertBtnList, action: true, time: 0.6)
             
         } else {
             
-            self.animatedMAinButton(buton: listLbl, action: false, time: 0.3)
-            self.animatedMAinButton(buton: listShopBtnLbl, action: false, time: 0.4)
-            self.animatedMAinButton(buton: productBtnList, action: false, time: 0.5)
-            self.animatedMAinButton(buton: alertBtnList, action: false, time: 0.6)
+            mainMenuConfig.animatedMAinButton(buton: listLbl, action: false, time: 0.3)
+            mainMenuConfig.animatedMAinButton(buton: listShopBtnLbl, action: false, time: 0.4)
+            mainMenuConfig.animatedMAinButton(buton: productBtnList, action: false, time: 0.5)
+            mainMenuConfig.animatedMAinButton(buton: alertBtnList, action: false, time: 0.6)
         }
     }
     
@@ -245,6 +189,12 @@ class HomeVC: UIViewController {
             
         case "goToListElements":
             guard let goToViewStoryBoard = segue.destination as? ListDetailVC else{return}
+            goToViewStoryBoard.modalPresentationStyle = .fullScreen
+            goToViewStoryBoard.dismiss(animated: true, completion: nil)
+            break
+            //goToProfile
+        case "goToProfile":
+            guard let goToViewStoryBoard = segue.destination as? ProfileVC else{return}
             goToViewStoryBoard.modalPresentationStyle = .fullScreen
             goToViewStoryBoard.dismiss(animated: true, completion: nil)
             break
@@ -295,11 +245,6 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
 
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
-    /// <#Description#>
-    /// - Parameters:
-    ///   - tableView: <#tableView description#>
-    ///   - section: <#section description#>
-    /// - Returns: <#description#>
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
     }
@@ -308,20 +253,10 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         return 30
     }
     
-    /// <#Description#>
-    /// - Parameters:
-    ///   - tableView: <#tableView description#>
-    ///   - section: <#section description#>
-    /// - Returns: <#description#>
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return botomElemets.itemsBotom.count
     }
     
-    /// <#Description#>
-    /// - Parameters:
-    ///   - tableView: <#tableView description#>
-    ///   - indexPath: <#indexPath description#>
-    /// - Returns: <#description#>
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "singleElement", for: indexPath) as? SingleElementTVCell
         //        let item = items[indexPath.row]
