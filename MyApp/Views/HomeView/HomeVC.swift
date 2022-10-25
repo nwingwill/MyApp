@@ -14,7 +14,7 @@ import SkeletonView
 class HomeVC: UIViewController {
     
     @IBOutlet weak var logoImgView: UIImageView!
-//    @IBOutlet weak var appNameLbl: UILabel!
+    //    @IBOutlet weak var appNameLbl: UILabel!
     
     @IBOutlet weak var singInOutBtn: UIButton!
     @IBOutlet weak var locationMV: MKMapView!
@@ -64,7 +64,8 @@ class HomeVC: UIViewController {
     func configMenuButton(button: UIButton, name: String) -> UIButton {
         button.imageView?.image = UIImage(named: "\(name)")
         button.imageView?.layer.borderColor = UIColor.white.cgColor
-        button.backgroundColor = UIColor.gray.lighter
+//        button.backgroundColor = UIColor.gray.lighter
+        button.backgroundColor = .clear
         button.layer.cornerRadius = 5
         button.layer.shadowColor = UIColor.white.cgColor
         button.layer.borderWidth = 1
@@ -80,19 +81,27 @@ class HomeVC: UIViewController {
         if  logedIn == true {
             
             let homeBtnLbl = configMenuButton(button: homeBtnLbl, name: "main-60")
-            let buttonList = configMenuButton(button: listLbl, name: "list-29")
-            let buttonShop = configMenuButton(button: listShopBtnLbl, name: "shopping-29")
-            let alertBtnList = configMenuButton(button: alertBtnList, name: "bell_fill-29")
-            let productBtnList = configMenuButton(button: productBtnList, name: "calendar-29")
-            //            let listShopBtnLbl = configMenuButton(button: listShopBtnLbl, name: "shopping-29")
-            buttonList.isHidden = true
-            buttonShop.isHidden = true
-            alertBtnList.isHidden = true
-            productBtnList.isHidden = true
             homeBtnLbl.isSkeletonable = true
             
             singInOutBtn.imageView?.image = UIImage(named: "gear-40")
             mainMenuContainerView.isHidden = false
+//            UIBba
+            
+            BlurEfect().blurEffectView(view: mainMenuContainerView)
+            
+//            let blurEfect = UIBlurEffect(style: .light)
+//            let blurView = UIVisualEffectView(effect: blurEfect)
+//            blurView.translatesAutoresizingMaskIntoConstraints = false
+//            mainMenuContainerView.backgroundColor = .clear
+//            mainMenuContainerView.insertSubview(blurView, at: 0)
+//            NSLayoutConstraint.activate([
+//                blurView.topAnchor.constraint(equalTo: mainMenuContainerView.topAnchor),
+//                blurView.leadingAnchor.constraint(equalTo: mainMenuContainerView.leadingAnchor),
+//                blurView.heightAnchor.constraint(equalTo: mainMenuContainerView.heightAnchor),
+//                blurView.widthAnchor.constraint(equalTo: mainMenuContainerView.widthAnchor)
+//
+//            ])
+            
         }else{
             singInOutBtn.imageView?.image = UIImage(named: "singin-40")
         }
@@ -189,24 +198,40 @@ class HomeVC: UIViewController {
     @IBAction func listBtn(_ sender: Any) {
     }
     
+    func animatedMAinButton(buton: UIButton, action: Bool, time: Double) {
+        UIView.transition(with: buton, duration: time, options: .transitionCrossDissolve) {
+            buton.isHidden = action
+//            buton.isHidden = action
+//            buton.isHidden = action
+//            buton.isHidden = action
+        }
+    }
     
     @IBAction func homeBtn(_ sender: Any) {
         
-        if listLbl.isHidden == false || listShopBtnLbl.isHidden == false || alertBtnList.isHidden == false || productBtnList.isHidden == false {
+        
+        let listLbl = configMenuButton(button: listLbl, name: "list-29")//Ticket
+        let listShopBtnLbl = configMenuButton(button: listShopBtnLbl, name: "shopping-29")//Shpping Car
+        let productBtnList = configMenuButton(button: productBtnList, name: "calendar-29")//Calendar
+        let alertBtnList = configMenuButton(button: alertBtnList, name: "bell_fill-29")//Alert
+        
+        if listLbl.isHidden == false || listShopBtnLbl.isHidden == false || productBtnList.isHidden == false || alertBtnList.isHidden == false {
             
+            self.animatedMAinButton(buton: listLbl, action: true, time: 0.3)
+            self.animatedMAinButton(buton: listShopBtnLbl, action: true, time: 0.4)
+            self.animatedMAinButton(buton: productBtnList, action: true, time: 0.5)
+            self.animatedMAinButton(buton: alertBtnList, action: true, time: 0.6)
             
-            listLbl.isHidden = true
-            listShopBtnLbl.isHidden = true
-            alertBtnList.isHidden = true
-            productBtnList.isHidden = true
+
             
-    } else {
-        listLbl.isHidden = false
-        listShopBtnLbl.isHidden = false
-        alertBtnList.isHidden = false
-        productBtnList.isHidden = false
+        } else {
+            
+            self.animatedMAinButton(buton: listLbl, action: false, time: 0.3)
+            self.animatedMAinButton(buton: listShopBtnLbl, action: false, time: 0.4)
+            self.animatedMAinButton(buton: productBtnList, action: false, time: 0.5)
+            self.animatedMAinButton(buton: alertBtnList, action: false, time: 0.6)
+        }
     }
-}
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -268,7 +293,6 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
 }
 
-
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
     /// <#Description#>
@@ -302,17 +326,17 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "singleElement", for: indexPath) as? SingleElementTVCell
         //        let item = items[indexPath.row]
         
-//        cell?.frame.size = CGSize(width: 300, height: 150)
+        //        cell?.frame.size = CGSize(width: 300, height: 150)
         let item = botomElemets.itemsBotom[indexPath.row]
         if item.itemImage == "" {
             let imageUrl = "https://st.depositphotos.com/1000947/1749/i/600/depositphotos_17494035-stock-photo-creative-elegant-design-for-your.jpg"
             cell?.singleImageView.sd_setImage(with: URL(string: imageUrl))
-//            cell?.singleImageView.frame = CGRect(x: 0, y: 0, width: 120, height: 100)
-
+            //            cell?.singleImageView.frame = CGRect(x: 0, y: 0, width: 120, height: 100)
+            
         }else{
             let imageUrl = "https://image.tmdb.org/t/p/original\(item.itemImage)"
             cell?.singleImageView.sd_setImage(with: URL(string: imageUrl))
-//            cell?.singleImageView.layer.cornerRadius = 10
+            //            cell?.singleImageView.layer.cornerRadius = 10
         }
         cell?.titleLbl.text = item.titleLabelText
         cell?.detailTex.text = item.listTitle

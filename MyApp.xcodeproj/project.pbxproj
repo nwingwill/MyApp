@@ -37,6 +37,7 @@
 		096EE3882904014E00DB82E3 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 096EE3872904014E00DB82E3 /* FirebaseRemoteConfigSwift */; };
 		096EE38A2904014E00DB82E3 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 096EE3892904014E00DB82E3 /* FirebaseStorage */; };
 		096EE38C2904014E00DB82E3 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 096EE38B2904014E00DB82E3 /* FirebaseStorageCombine-Community */; };
+		097E265529075F3D006A1FA6 /* BlurEfect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097E265429075F3D006A1FA6 /* BlurEfect.swift */; };
 		098A965228F30D2F0008CB2D /* ProductionConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 098A965128F30D2F0008CB2D /* ProductionConfig.xcconfig */; };
 		098A965428F30D550008CB2D /* DevelopConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 098A965328F30D550008CB2D /* DevelopConfig.xcconfig */; };
 		098A965628F30D920008CB2D /* QAConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 098A965528F30D920008CB2D /* QAConfig.xcconfig */; };
@@ -95,6 +96,7 @@
 		094DB6EA28F320F9002EB276 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		096AFAF528FCDEB300C9F142 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		096AFAFB28FCE7A100C9F142 /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
+		097E265429075F3D006A1FA6 /* BlurEfect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurEfect.swift; sourceTree = "<group>"; };
 		098A965128F30D2F0008CB2D /* ProductionConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ProductionConfig.xcconfig; sourceTree = "<group>"; };
 		098A965328F30D550008CB2D /* DevelopConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DevelopConfig.xcconfig; sourceTree = "<group>"; };
 		098A965528F30D920008CB2D /* QAConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = QAConfig.xcconfig; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				09FFFE2428FC93D2007A701C /* AlertMessageHelper */,
 				09DBDF4F28F4BC5E00756617 /* LanguageManagement.swift */,
 				09BF6F5828F866670042960F /* DebugManager.swift */,
+				097E265429075F3D006A1FA6 /* BlurEfect.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 				09B404E82902DB28005E8572 /* DetailsViewModels.swift in Sources */,
 				09B404E52902D8B9005E8572 /* ResultDetailModel.swift in Sources */,
 				09DBDF5D28F4CC2000756617 /* HomeVC.swift in Sources */,
+				097E265529075F3D006A1FA6 /* BlurEfect.swift in Sources */,
 				09BC0F6D28F8AD7400C425DE /* TopElementViewModel.swift in Sources */,
 				09E4688328FB345500BEBAC3 /* AuthVC.swift in Sources */,
 				09D1B8CC28F70A4100F3D20D /* DisplayableProtocol.swift in Sources */,
