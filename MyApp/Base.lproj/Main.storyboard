@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21169.4"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,29 +16,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFb-Xd-UdR">
-                                <rect key="frame" x="93" y="372" width="243" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSc-a5-lyz">
+                                <rect key="frame" x="16" y="668.66666666666663" width="358" height="34.333333333333371"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="lcbtnContinue"/>
+                                <connections>
+                                    <action selector="btnContinueToHome:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DPf-C9-REG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LSc-a5-lyz" secondAttribute="trailing" constant="16" id="1vD-z9-lqh"/>
+                            <constraint firstItem="LSc-a5-lyz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="G34-st-uft"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LSc-a5-lyz" secondAttribute="bottom" constant="107" id="kJ4-T9-7aJ"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="lblAppName" destination="MFb-Xd-UdR" id="Axj-wW-D1H"/>
+                        <outlet property="lblBtnContinueToHome" destination="LSc-a5-lyz" id="wOs-Pg-fdI"/>
+                        <segue destination="67W-Lt-QGs" kind="show" identifier="goHomeSB" id="2gl-nb-Cil"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="21.538461538461537" y="3.5545023696682461"/>
         </scene>
+        <!--MainVC-->
+        <scene sceneID="0vD-RV-6jo">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeSB" referencedIdentifier="HomeSB" id="67W-Lt-QGs" userLabel="MainVC" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="YE9-lr-jga"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y21-Fr-JG7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="710" y="4"/>
+        </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>
