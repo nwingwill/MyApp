@@ -12,6 +12,7 @@ struct EndPoitModel {
     let nowPlayingEndpoint: String = "/3/movie/now_playing"
     let popularEndpoint: String = "/3/movie/popular"
     let trendingEndPoint: String = "/3/trending/all/day"
+    let detailEnpoint: String = "/3/movie/"
 
 }
 

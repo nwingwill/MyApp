@@ -9,11 +9,7 @@ import UIKit
 
 class ListDetailVC: UIViewController {
     
-    
-    
     @IBOutlet weak var goToHomeBtn: UIBarButtonItem!
-    
-  
     
     @IBOutlet weak var singleElmentListTV: UITableView!
     
@@ -21,12 +17,13 @@ class ListDetailVC: UIViewController {
     var endPoint = EndPoitModel()
     var segueText: String?
     
-    
     var homeVieModel = HomeViewModel()
     var botomElemets = BottomElementViewModel()
     var topElements = TopElementViewModel()
     let logedIn = UserDefaults.standard.isLoggedIn()
-    let navigationOPtion = ""
+    var navigationOPtion = ""
+    var idItem : String?
+    var alert = AlertMessengeHelperVC()
     
     @IBOutlet weak var homeBtnLbl: UIButton!
     
@@ -79,22 +76,20 @@ class ListDetailVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        switch navigationOPtion {
-            
-        case "goHomeHb":
+        
+        if navigationOPtion == "goHomeHb"  {
             guard let goToViewStoryBoard = segue.destination as? HomeVC else{return}
             goToViewStoryBoard.modalPresentationStyle = .fullScreen
             goToViewStoryBoard.dismiss(animated: true, completion: nil)
-            break
+        } else if navigationOPtion == "goListToDetailSG" {
+//            guard let goToViewStoryBoard = segue.destination as? DetailElementVC else{return}
+            let destinationVC : DetailElementVC = segue.destination as! DetailElementVC
             
-//        case "goToListElements":
-//            guard let goToViewStoryBoard = segue.destination as? ListDetailVC else{return}
-//            goToViewStoryBoard.modalPresentationStyle = .fullScreen
-//            goToViewStoryBoard.dismiss(animated: true, completion: nil)
-//            break
+            print("idItem = \(idItem!)")
+            destinationVC.idItem = idItem
+            destinationVC.modalPresentationStyle = .fullScreen
+            destinationVC.dismiss(animated: true, completion: nil)
             
-        default:
-            break
         }
         
     }
@@ -102,7 +97,6 @@ class ListDetailVC: UIViewController {
 }
 
 extension ListDetailVC: UITableViewDelegate, UITableViewDataSource {
-    
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
@@ -112,36 +106,43 @@ extension ListDetailVC: UITableViewDelegate, UITableViewDataSource {
         return 30
     }
     
-   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return botomElemets.itemsBotom.count
     }
     
-   
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "singleElement", for: indexPath) as? SingleElementTVCell
-        //        let item = items[indexPath.row]
         
-//        cell?.frame.size = CGSize(width: 300, height: 150)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "singleElement", for: indexPath) as? SingleElementTVCell
         let item = botomElemets.itemsBotom[indexPath.row]
         if item.itemImage == "" {
+            
             let imageUrl = "https://st.depositphotos.com/1000947/1749/i/600/depositphotos_17494035-stock-photo-creative-elegant-design-for-your.jpg"
             cell?.singleImageView.sd_setImage(with: URL(string: imageUrl))
-//            cell?.singleImageView.frame = CGRect(x: 0, y: 0, width: 120, height: 100)
+            cell?.singleImageView.layer.cornerRadius = 10
 
         }else{
+            
             let imageUrl = "https://image.tmdb.org/t/p/original\(item.itemImage)"
             cell?.singleImageView.sd_setImage(with: URL(string: imageUrl))
-//            cell?.singleImageView.layer.cornerRadius = 10
+            cell?.singleImageView.layer.cornerRadius = 10
         }
+        
         cell?.titleLbl.text = item.titleLabelText
         cell?.detailTex.text = item.listTitle
         cell?.cost.text = "$\(item.idItem)"
         return cell!
         
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = botomElemets.itemsBotom[indexPath.row]
-        print("Tapped: \(item.idItem)")
+        navigationOPtion = "goListToDetailSG"
+        idItem = item.idItem
+        if idItem != "" {
+            performSegue(withIdentifier: "\(navigationOPtion)", sender: idItem)
+//            print("sender: \(sender)")
+        }else {
+            alert.showAlert(title: "Failure", message: "No id Selected", alertType: .failure)
+        }
     }
 }
