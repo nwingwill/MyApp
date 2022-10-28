@@ -35,7 +35,8 @@ class HomeVC: UIViewController {
     var botomElemets = BottomElementViewModel()
     var topElements = TopElementViewModel()
     let logedIn = UserDefaults.standard.isLoggedIn()
-    let navigationOPtion = ""
+    var navigationOPtion = ""
+    var idItem = ""
     var alert = AlertMessengeHelperVC()
     var mainMenuConfig = MainMenuConfig()
     var buttonsConfig = ButtonsConfig()
@@ -189,6 +190,7 @@ class HomeVC: UIViewController {
             
         case "goToListElements":
             guard let goToViewStoryBoard = segue.destination as? ListDetailVC else{return}
+            goToViewStoryBoard.idItem = idItem
             goToViewStoryBoard.modalPresentationStyle = .fullScreen
             goToViewStoryBoard.dismiss(animated: true, completion: nil)
             break
@@ -198,7 +200,13 @@ class HomeVC: UIViewController {
             goToViewStoryBoard.modalPresentationStyle = .fullScreen
             goToViewStoryBoard.dismiss(animated: true, completion: nil)
             break
-            
+        //goToDetailElemets
+        case "goToDetailElemets":
+            guard let goToViewStoryBoard = segue.destination as? DetailElementVC else{return}
+            goToViewStoryBoard.idItem = idItem
+            goToViewStoryBoard.modalPresentationStyle = .fullScreen
+            goToViewStoryBoard.dismiss(animated: true, completion: nil)
+            break
         default:
             break
         }
@@ -282,6 +290,18 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = botomElemets.itemsBotom[indexPath.row]
         print("Tapped: \(item.idItem)")
+        
+//        let item = botomElemets.itemsBotom[indexPath.row]
+        navigationOPtion = "goToListElements"
+        idItem = item.idItem
+        if idItem != "" {
+            performSegue(withIdentifier: "\(navigationOPtion)", sender: idItem)
+//            print("sender: \(sender)")
+        }else {
+            alert.showAlert(title: "Failure", message: "No id Selected", alertType: .failure)
+        }
+
+        
     }
 }
 

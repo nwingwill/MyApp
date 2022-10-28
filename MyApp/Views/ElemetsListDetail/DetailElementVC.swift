@@ -35,6 +35,7 @@ class DetailElementVC: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        print("Valor de IdItem in Detail: \(idItem ?? "No Data")")
         configureDetailView()
         bind()
         

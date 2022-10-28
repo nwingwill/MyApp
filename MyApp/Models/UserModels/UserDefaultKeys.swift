@@ -26,7 +26,7 @@ extension UserDefaults {
         set(value, forKey: UserDefaultsKeys.userUUID.rawValue)
     }
     
-    func getUserUUID(value: String) -> String {
+    func getUserUUID() -> String {
         return string(forKey: UserDefaultsKeys.userUUID.rawValue) ?? ""
     }
     
@@ -34,7 +34,7 @@ extension UserDefaults {
         set(value, forKey: UserDefaultsKeys.userName.rawValue)
     }
     
-    func getUserName(value: String) -> String {
+    func getUserName() -> String {
         return string(forKey: UserDefaultsKeys.userName.rawValue) ?? ""
     }
     
@@ -42,9 +42,10 @@ extension UserDefaults {
         set(value, forKey: UserDefaultsKeys.userEmail.rawValue)
     }
     
-    func getUserEmail(value: String) -> String {
+    func getUserEmail() -> String {
         return string(forKey: UserDefaultsKeys.userEmail.rawValue) ?? ""
     }
+
     
     func clearAllUSerDefaultsData(){
         let userDefaults = UserDefaults.standard

@@ -70,7 +70,7 @@
         <!--Detail ElementVC-->
         <scene sceneID="C8O-89-IU2">
             <objects>
-                <viewController id="Rlj-xU-KcO" customClass="DetailElementVC" customModule="MyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailElementSB" id="Rlj-xU-KcO" customClass="DetailElementVC" customModule="MyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cmD-rb-baH">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -249,8 +249,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ieb-gZ-LYK"/>
-        <segue reference="z9p-P5-WLP"/>
+        <segue reference="MhS-Wf-pGk"/>
+        <segue reference="VRj-PH-D1u"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="circle.dashed" catalog="system" width="128" height="123"/>
