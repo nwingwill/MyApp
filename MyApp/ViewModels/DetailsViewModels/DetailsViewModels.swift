@@ -28,12 +28,18 @@ class DetailsViewModels {
         }
     }
     
+    var idItem : String = "" {
+        didSet {
+            refreshData()
+        }
+    }
+    
     func retriveDataDetails(endPoint: String, idMovie: String) {
         
         let parametersConfig = ParameterConfig()
         let languaje = LanguageModel()
         let url = "\(ConfigEnviroments.BASE_URL)\(endPoint)\(idMovie)\(parametersConfig.api_key)\(ConfigEnviroments.API_KEY)\(parametersConfig.language)\(languaje.englisUS)"
-        
+        print("Valor de la url: \(url)")
         let request = AF.request("\(url)")
         
         request.responseDecodable  (of: ResultDetailModel.self) { (response) in
@@ -62,11 +68,12 @@ class DetailsViewModels {
                 let items = ResultDetailModel(adult: adult, backdropPath: backdropPath, budget: budget, homepage: homepage, originalLanguage: originalLanguage, overview: overview, popularity: popularity, posterPath: posterPath, releaseDate: releaseDate, status: status, title: title, voteAverage: voteAverage, voteCount: voteCount)
                 
                 self.itemsDetails.append(items)
-
+//                self.idItem = idMovie
+                print("Valor self.itemsDetails: \(self.itemsDetails)")
+                
             }
             
         }
-        
     }
     
 }

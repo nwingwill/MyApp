@@ -32,24 +32,37 @@ class ListDetailVC: UIViewController {
         
         // Do any additional setup after loading the view.
         
-//        if idItem == "" {
+//        if idItem != nil {
+//            navigationOPtion = "goListToDetailSG"
+////            performSegue(withIdentifier: "\(navigationOPtion)", sender: self)
+//            navigationOption()
+//        }else{
+            
             configureView()
             bindBottom()
-            
-//        } else {
-            
-//            navigationOPtion = "goListToDetailSG"
-//            performSegue(withIdentifier: "\(navigationOPtion)", sender: idItem)
-//            
 //        }
-           
-  
-       
     }
     
     func configureView() {
+//        if idItem != nil{
+//            print("Continuar aca, idItem = \(idItem ?? "No Value...!!!")")
+//            navigationOPtion = "goListToDetailSG"
+////            idItem = item.idItem
+//                performSegue(withIdentifier: "\(navigationOPtion)", sender: self)
+//
+////            guard let viewController = UIStoryboard(name: "ElementListDetailSB", bundle: nil).instantiateViewController(withIdentifier: "DetailElementSB") as? DetailElementVC else {
+////                print("Coult not instatiate view controller with identifier")
+////                return
+////            }
+////                viewController.idItem = self.idItem
+////            print("idItemValue: \(self.idItem ?? "No Data Value")")
+////    //            viewController.resultArray = self.resultArray
+////            self.navigationController?.pushViewController(viewController, animated: true)
+//        } else {
+            
+            configureViewBotomElemts()
+//        }
         
-        configureViewBotomElemts()
     }
     
     private func bindBottom() {
@@ -61,6 +74,19 @@ class ListDetailVC: UIViewController {
             
         }
     }
+    
+//    func navigationOption() {
+//
+//        guard let viewController = UIStoryboard(name: "ElementListDetailSB", bundle: nil).instantiateViewController(withIdentifier: "DetailElementSB") as? DetailElementVC else {
+//            print("Coult not instatiate view controller with identifier")
+//            retur
+//        }
+//            viewController.idItem = self.idItem
+//        print("idItemValue: \(self.idItem ?? "No Data Value")")
+////            viewController.resultArray = self.resultArray
+//        self.navigationController?.pushViewController(viewController, animated: true)
+//
+//    }
     
     func configureViewBotomElemts(){
         //Thread 1: Fatal error: Unexpectedly found nil while implicitly unwrapping an Optional value
@@ -74,13 +100,6 @@ class ListDetailVC: UIViewController {
         self.singleElmentListTV.delegate = self
     }
     
-    
-    
-    //    @IBAction func homeBtnLbl(_ sender: Any) {
-    //        let navigationOPtion = "ElementListDetailSB"
-    //        self.performSegue(withIdentifier: "\(navigationOPtion)", sender: self)
-    //    }
-    
     @IBAction func gotoHomeBtn(_ sender: Any) {
         let navigationOPtion = "goHomeHb"
         self.performSegue(withIdentifier: "\(navigationOPtion)", sender: self)
@@ -88,95 +107,38 @@ class ListDetailVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        
-        
         switch navigationOPtion {
-            
+
         case "goHomeHb":
-            
+
             guard let goToViewStoryBoard = segue.destination as? HomeVC else{return}
             goToViewStoryBoard.modalPresentationStyle = .fullScreen
             goToViewStoryBoard.dismiss(animated: true, completion: nil)
             break
-            
-        case "goListToDetailSG":
-            
-            guard let destinationVC : DetailElementVC = segue.destination as? DetailElementVC else {return}
-            destinationVC.idItem = idItem
-            destinationVC.modalPresentationStyle = .fullScreen
-            destinationVC.dismiss(animated: true, completion: nil)
-            
+
+//        case "goListToDetailSG":
+//
+//            guard let destinationVC : DetailElementVC = segue.destination as? DetailElementVC else {return}
+//            destinationVC.idItem = idItem
+//            destinationVC.modalPresentationStyle = .fullScreen
+//            destinationVC.dismiss(animated: true, completion: nil)
+//         //goToItemDetail
+//            break
+
+        case "goToItemDetail":
+
+            guard let goToViewStoryBoard = segue.destination as? ItemDetailVC else{return}
+            goToViewStoryBoard.idItem = idItem
+            goToViewStoryBoard.modalPresentationStyle = .fullScreen
+            goToViewStoryBoard.dismiss(animated: true, completion: nil)
+
+            break
+
         default:
             print("Fail...!!!!")
             break
         }
-        
-//        if navigationOPtion == "goHomeHb"  {
-//            guard let goToViewStoryBoard = segue.destination as? HomeVC else{return}
-//            goToViewStoryBoard.modalPresentationStyle = .fullScreen
-//            goToViewStoryBoard.dismiss(animated: true, completion: nil)
-//        } else if navigationOPtion == "goListToDetailSG" {
-//            //            guard let goToViewStoryBoard = segue.destination as? DetailElementVC else{return}
-//            let destinationVC : DetailElementVC = segue.destination as! DetailElementVC
-//
-//            print("idItem = \(idItem!)")
-//            destinationVC.idItem = idItem
-//            destinationVC.modalPresentationStyle = .fullScreen
-//            destinationVC.dismiss(animated: true, completion: nil)
-//
-//        }
-        
     }
     
 }
 
-extension ListDetailVC: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 30
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return botomElemets.itemsBotom.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "singleElement", for: indexPath) as? SingleElementTVCell
-        let item = botomElemets.itemsBotom[indexPath.row]
-        if item.itemImage == "" {
-            
-            let imageUrl = "https://st.depositphotos.com/1000947/1749/i/600/depositphotos_17494035-stock-photo-creative-elegant-design-for-your.jpg"
-            cell?.singleImageView.sd_setImage(with: URL(string: imageUrl))
-            cell?.singleImageView.layer.cornerRadius = 10
-            
-        }else{
-            
-            let imageUrl = "https://image.tmdb.org/t/p/original\(item.itemImage)"
-            cell?.singleImageView.sd_setImage(with: URL(string: imageUrl))
-            cell?.singleImageView.layer.cornerRadius = 10
-        }
-        
-        cell?.titleLbl.text = item.titleLabelText
-        cell?.detailTex.text = item.listTitle
-        cell?.cost.text = "$\(item.idItem)"
-        return cell!
-        
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = botomElemets.itemsBotom[indexPath.row]
-        navigationOPtion = "goListToDetailSG"
-        idItem = item.idItem
-        if idItem != "" {
-            performSegue(withIdentifier: "\(navigationOPtion)", sender: idItem)
-            //            print("sender: \(sender)")
-        }else {
-            alert.showAlert(title: "Failure", message: "No id Selected", alertType: .failure)
-        }
-    }
-}

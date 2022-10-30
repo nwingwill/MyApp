@@ -199,11 +199,22 @@
                         <segue destination="Zbc-SL-lmB" kind="show" identifier="goAuthSB" id="L4R-QS-9Bm"/>
                         <segue destination="4Bl-df-uPb" kind="show" identifier="goToListElements" id="16b-io-pIX"/>
                         <segue destination="PEU-h2-N8h" kind="show" identifier="goToProfile" id="Cgl-bu-DA1"/>
+                        <segue destination="3MJ-6A-e8y" kind="show" identifier="itemDetailSG" id="Jo5-r4-oke"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="912" y="135"/>
+        </scene>
+        <!--itemDetailSB-->
+        <scene sceneID="nqR-dE-Ejh">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="itemDetailMainSB" storyboardName="ElementDetailSB" referencedIdentifier="itemDetailSB" id="3MJ-6A-e8y" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="8zW-Ac-b2I"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DCZ-OM-Eli" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1311" y="606"/>
         </scene>
         <!--listDeatailSB-->
         <scene sceneID="dLt-xY-Iou">
@@ -809,6 +820,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="Cgl-bu-DA1"/>
         <segue reference="L4R-QS-9Bm"/>
         <segue reference="yX6-1L-GM8"/>
     </inferredMetricsTieBreakers>
