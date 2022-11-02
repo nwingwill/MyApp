@@ -621,8 +621,10 @@
                         <outlet property="googleLogInBtn" destination="nut-AY-ucj" id="bM2-BG-dEJ"/>
                         <outlet property="infoLbl" destination="vNC-ao-8OP" id="S4x-3K-hD7"/>
                         <outlet property="loginBtn" destination="bDK-p3-GLF" id="rnL-yI-XQV"/>
+                        <outlet property="loginBtnLbl" destination="bDK-p3-GLF" id="Yxa-iZ-t3E"/>
                         <outlet property="passwordLbl" destination="kzQ-5h-uwS" id="d2H-zC-H2K"/>
                         <outlet property="singUpBtn" destination="YI7-FB-Bak" id="MUP-CN-agJ"/>
+                        <outlet property="singUpBtnLbl" destination="YI7-FB-Bak" id="FK2-oc-KIt"/>
                         <segue destination="Y6W-OH-hqX" kind="show" identifier="showLoginHomeAuth" id="vBz-JX-hog"/>
                         <segue destination="S6e-hV-6Ov" kind="show" identifier="goRegisterSB" id="uKU-Pd-6hE"/>
                     </connections>
