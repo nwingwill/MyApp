@@ -75,21 +75,8 @@ class ListDetailVC: UIViewController {
         }
     }
     
-//    func navigationOption() {
-//
-//        guard let viewController = UIStoryboard(name: "ElementListDetailSB", bundle: nil).instantiateViewController(withIdentifier: "DetailElementSB") as? DetailElementVC else {
-//            print("Coult not instatiate view controller with identifier")
-//            retur
-//        }
-//            viewController.idItem = self.idItem
-//        print("idItemValue: \(self.idItem ?? "No Data Value")")
-////            viewController.resultArray = self.resultArray
-//        self.navigationController?.pushViewController(viewController, animated: true)
-//
-//    }
-    
     func configureViewBotomElemts(){
-        //Thread 1: Fatal error: Unexpectedly found nil while implicitly unwrapping an Optional value
+       
         botomElemets.retriveDataEndPoint(endPoint: endPoint.nowPlayingEndpoint)
         self.singleElmentListTV.register(UINib(nibName: "SingleElementTVCell", bundle: nil), forCellReuseIdentifier: "singleElement")
         

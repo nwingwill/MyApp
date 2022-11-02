@@ -71,6 +71,13 @@ class RegisterViewModel {
                         UserDefaults.standard.setUserUUID(value: "\(userUUID)")
                         UserDefaults.standard.setUSerEmail(value: "\(email)")
                         self!.item = true
+//                        let secount = 2.0
+//                        DispatchQueue.main.asyncAfter(deadline: .now() + secount) {
+//
+//
+//                            self!.dismis
+//
+//                        }
                     }
                 }
                 

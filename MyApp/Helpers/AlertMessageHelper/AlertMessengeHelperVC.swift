@@ -56,6 +56,12 @@ class AlertMessengeHelperVC: UIView {
         case .success:
             imgConfirmMsgHelper.image = UIImage(named: "Success")
             confirmBtnMsgHelper.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+            let secount = 2.0
+            DispatchQueue.main.asyncAfter(deadline: .now() + secount) {
+                self.parentViewMsgHelper.removeFromSuperview()
+            }
+            
+            
         case .failure:
             imgConfirmMsgHelper.image = UIImage(named: "Failure")
             confirmBtnMsgHelper.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)

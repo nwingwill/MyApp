@@ -82,6 +82,7 @@ class LoginVC: UIViewController {
                         
                         let navigationOPtion = "showLoginHomeAuth"
                         self!.performSegue(withIdentifier: "\(navigationOPtion)", sender: self)
+                        
                     }
                 }else{
                     self!.alert.showAlert(title: "Failure", message: "Error al acceder", alertType: .failure)
@@ -100,6 +101,8 @@ class LoginVC: UIViewController {
     
     @IBAction func loginBtn(_ sender: Any) {
 
+        loginBtn.titleLabel?.text = traslate.internatiolization(keyText: "lcloading", commentText: " Loading")
+    
         usermanager.retriveData(email: emailLbl.text!, password: passwordLbl.text!)
 
 //        let secount = 3.0

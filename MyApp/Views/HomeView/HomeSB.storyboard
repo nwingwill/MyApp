@@ -629,7 +629,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5WS-WX-99S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2065" y="15"/>
+            <point key="canvasLocation" x="2049" y="76"/>
         </scene>
         <!--RegisterVC-->
         <scene sceneID="Nv3-Ww-nwC">
@@ -673,13 +673,13 @@
                                                 <rect key="frame" x="0.0" y="122" width="350" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OfR-Sw-3YW">
                                                 <rect key="frame" x="0.0" y="173" width="350" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
                                         </subviews>
                                     </view>
@@ -812,17 +812,18 @@
                         <outlet property="singIngBtn" destination="px2-kb-JU2" id="gLt-fG-NEg"/>
                         <outlet property="singUpBtn" destination="g1P-DS-YRt" id="vEq-5A-hQ9"/>
                         <segue destination="Zbc-SL-lmB" kind="show" identifier="goToLogIng" id="I1p-dK-6Pd"/>
+                        <segue destination="Y6W-OH-hqX" kind="show" identifier="goToHomeRegAuth" id="npL-5O-xb3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mfi-QD-U7s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3529" y="-89"/>
+            <point key="canvasLocation" x="3474" y="-297"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Cgl-bu-DA1"/>
-        <segue reference="L4R-QS-9Bm"/>
-        <segue reference="yX6-1L-GM8"/>
+        <segue reference="uKU-Pd-6hE"/>
+        <segue reference="I1p-dK-6Pd"/>
+        <segue reference="vBz-JX-hog"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ImgTopNwing" width="2588" height="2026"/>
